@@ -1,0 +1,5296 @@
+
+<!ENTITY % string "CDATA">
+<!ENTITY % restring "CDATA">
+<!ENTITY % rplstring "CDATA">
+
+<!ELEMENT read (#PCDATA)>
+<!ATTLIST read
+          string %string; #IMPLIED>
+
+<!ELEMENT write (#PCDATA)>
+<!ATTLIST write
+          string %string; #IMPLIED>
+          
+<!ELEMENT stlist (#PCDATA)>
+<!ELEMENT stcheckin (#PCDATA)>
+<!ELEMENT stcheckout (#PCDATA)>
+
+<!ENTITY % boolean "(true|false|on|off|yes|no)">
+<!ENTITY % tasks "propertyfile | ccmkdir | importtypelib | vsscheckin | sql | cvspass | image | csc | loadresource | dirname | replaceregexp | get | jjtree | sleep | jarlib-display | length | dependset | zip | patch | jspc | style | nice | tstamp | unwar | vsshistory | cvschangelog | ccmcheckin | bzip2 | sync | vssadd | javadoc | makeurl | translate | signjar | cclock | classloader | chown | jarlib-available | WsdlToDotnet | buildnumber | resourcecount | cvsversion | apt | ejbjar | war | copypath | rename | sequential | serverdeploy | property | subant | move | ildasm | copydir | schemavalidate | cccheckin | ccunlock | wljspc | fixcrlf | sosget | pathconvert | record | exec | ccmklabel | manifest | execon | ccmcheckout | ant | xmlvalidate | xslt | iplanet-ejbc | ccmcheckintask | gzip | native2ascii | ccrmtype | ear | input | presetdef | rmic | checksum | mail | loadfile | vsscheckout | soscheckin | mimemail | gunzip | concat | cab | touch | parallel | splash | antcall | ccmkbl | cccheckout | typedef | filter | xmlproperty | import | copy | jsharpc | symlink | antstructure | script | ccmcreatetask | rpm | delete | replace | attrib | verifyjar | waitfor | untar | loadproperties | available | echoproperties | junit | chgrp | bunzip2 | whichresource | copyfile | manifestclasspath | vsscreate | macrodef | unjar | vbc | echoxml | wsdltodotnet | mkdir | condition | cvs | tempfile | junitreport | ccmkattr | taskdef | echo | ccupdate | java | renameext | vsslabel | basename | javadoc2 | vsscp | tar | setproxy | diagnostics | ilasm | soscheckout | apply | jarlib-resolve | ccuncheckout | cvstagdiff | jlink | javacc | chmod | jarlib-manifest | pvcs | jar | ccmklbtype | sound | scriptdef | defaultexcludes | blgenclient | uptodate | jjdoc | genkey | javah | ccmkelem | ccmreconfigure | fail | unzip | javac | soslabel | depend | vssget | deltree">
+<!ENTITY % types "difference | isfileselected | mergemapper | extensionSet | stringtokenizer | url | scriptcondition | filterreader | selector | propertyset | dirset | chainedmapper | tarfileset | regexpmapper | zipentry | resources | scriptmapper | unpackagemapper | compositemapper | first | string | propertyresource | flattenmapper | description | scriptfilter | concatfilter | scriptselector | xmlcatalog | extension | file | filetokenizer | filtermapper | packagemapper | regexp | bzip2resource | filterchain | filterset | classfileset | linetokenizer | files | patternset | intersect | mapper | union | resource | tokens | assertions | substitution | libfileset | zipfileset | signedselector | tarentry | redirector | filelist | path | fileset | restrict | globmapper | identitymapper | javaresource | gzipresource | sort">
+
+<!ELEMENT project (target | %tasks; | %types;)*>
+<!ATTLIST project
+          name %string; #IMPLIED
+          default %string; #IMPLIED
+          basedir %string; #IMPLIED>
+
+<!ELEMENT target (%tasks; | %types;)*>
+
+<!ATTLIST target
+          id          ID    #IMPLIED
+          name        CDATA #REQUIRED
+          if %string; #IMPLIED
+          unless %string; #IMPLIED
+          depends %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT difference EMPTY>
+<!ATTLIST difference
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT isfileselected (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST isfileselected
+          id ID #IMPLIED
+          file %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          basedir %string; #IMPLIED>
+
+<!ELEMENT custom (classpath | param)*>
+<!ATTLIST custom
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          error %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED>
+
+<!ELEMENT classpath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST classpath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT fileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST fileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT patternset (include | patternset | exclude | excludesfile | includesfile)*>
+<!ATTLIST patternset
+          id ID #IMPLIED
+          includes %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED>
+
+<!ELEMENT include EMPTY>
+<!ATTLIST include
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT exclude EMPTY>
+<!ATTLIST exclude
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT excludesfile EMPTY>
+<!ATTLIST excludesfile
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT includesfile EMPTY>
+<!ATTLIST includesfile
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT none (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST none
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT present (mapper)*>
+<!ATTLIST present
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          targetdir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          present (srconly | both) #IMPLIED>
+
+<!ELEMENT mapper (classpath | mapper)*>
+<!ATTLIST mapper
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          type (identity | flatten | glob | merge | regexp | package | unpackage) #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED
+          from %restring; #IMPLIED
+          to %rplstring; #IMPLIED>
+
+<!ELEMENT not (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST not
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT type EMPTY>
+<!ATTLIST type
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          type (file | dir) #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT modified (classpath | param)*>
+<!ATTLIST modified
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          cache (propertyfile) #IMPLIED
+          comparator (equal | rule) #IMPLIED
+          update %boolean; #IMPLIED
+          algorithmclass %string; #IMPLIED
+          algorithm (hashvalue | digest | checksum) #IMPLIED
+          error %string; #IMPLIED
+          delayupdate %boolean; #IMPLIED
+          cacheclass %string; #IMPLIED
+          description %string; #IMPLIED
+          comparatorclass %string; #IMPLIED
+          modified %string; #IMPLIED
+          selres %boolean; #IMPLIED
+          seldirs %boolean; #IMPLIED>
+
+<!ELEMENT param EMPTY>
+<!ATTLIST param
+          expression %string; #IMPLIED
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          type %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT or (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST or
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT contains EMPTY>
+<!ATTLIST contains
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          text %string; #IMPLIED
+          ignorewhitespace %boolean; #IMPLIED>
+
+<!ELEMENT depend (mapper)*>
+<!ATTLIST depend
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          targetdir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          granularity %string; #IMPLIED>
+
+<!ELEMENT different (mapper)*>
+<!ATTLIST different
+          id ID #IMPLIED
+          ignorecontents %boolean; #IMPLIED
+          error %string; #IMPLIED
+          targetdir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          ignorefiletimes %boolean; #IMPLIED
+          granularity %string; #IMPLIED>
+
+<!ELEMENT size EMPTY>
+<!ATTLIST size
+          id ID #IMPLIED
+          when (equal | greater | less | ne | ge | le | eq | gt | lt | more) #IMPLIED
+          units (K | k | kilo | KILO | Ki | KI | ki | kibi | KIBI | M | m | mega | MEGA | Mi | MI | mi | mebi | MEBI | G | g | giga | GIGA | Gi | GI | gi | gibi | GIBI | T | t | tera | TERA | Ti | TI | ti | tebi | TEBI) #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT majority (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST majority
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          allowtie %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT containsregexp EMPTY>
+<!ATTLIST containsregexp
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          expression %string; #IMPLIED>
+
+<!ELEMENT filename EMPTY>
+<!ATTLIST filename
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          name %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          negate %boolean; #IMPLIED>
+
+<!ELEMENT selector (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST selector
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT date EMPTY>
+<!ATTLIST date
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          millis %string; #IMPLIED
+          checkdirs %boolean; #IMPLIED
+          datetime %string; #IMPLIED
+          granularity %string; #IMPLIED
+          pattern %string; #IMPLIED
+          when (before | after | equal) #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT and (custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | date | and | depth)*>
+<!ATTLIST and
+          id ID #IMPLIED
+          error %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT depth EMPTY>
+<!ATTLIST depth
+          id ID #IMPLIED
+          max %string; #IMPLIED
+          error %string; #IMPLIED
+          min %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT dirset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST dirset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT extdirs (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST extdirs
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT existing (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST existing
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT filelist (file)*>
+<!ATTLIST filelist
+          id ID #IMPLIED
+          dir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          files %string; #IMPLIED>
+
+<!ELEMENT file EMPTY>
+<!ATTLIST file
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT pathelement EMPTY>
+<!ATTLIST pathelement
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT path (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST path
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT mergemapper EMPTY>
+<!ATTLIST mergemapper
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT extensionSet (fileset | libfileset | extension)*>
+<!ATTLIST extensionSet
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT libfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST libfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          urlbase %string; #IMPLIED
+          includeimpl %boolean; #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          includeurl %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT extension EMPTY>
+<!ATTLIST extension
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          implementationversion %string; #IMPLIED
+          specificationversion %string; #IMPLIED
+          extensionname %string; #IMPLIED
+          implementationvendorid %string; #IMPLIED
+          specificationvendor %string; #IMPLIED
+          implementationurl %string; #IMPLIED
+          description %string; #IMPLIED
+          implementationvendor %string; #IMPLIED>
+
+<!ELEMENT stringtokenizer EMPTY>
+<!ATTLIST stringtokenizer
+          id ID #IMPLIED
+          suppressdelims %boolean; #IMPLIED
+          includedelims %boolean; #IMPLIED
+          description %string; #IMPLIED
+          delimsaretokens %boolean; #IMPLIED
+          delims %string; #IMPLIED>
+
+<!ELEMENT url EMPTY>
+<!ATTLIST url
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          url %string; #IMPLIED
+          name %string; #IMPLIED
+          file %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          directory %boolean; #IMPLIED
+          exists %boolean; #IMPLIED
+          description %string; #IMPLIED
+          size %string; #IMPLIED>
+
+<!ELEMENT scriptcondition (#PCDATA | classpath)*>
+<!ATTLIST scriptcondition
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          manager %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED
+          value %boolean; #IMPLIED
+          src %string; #IMPLIED
+          language %string; #IMPLIED>
+
+<!ELEMENT filterreader (classpath | param)*>
+<!ATTLIST filterreader
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED>
+
+<!ELEMENT propertyset (propertyref | propertyset | mapper)*>
+<!ATTLIST propertyset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          dynamic %boolean; #IMPLIED
+          negate %boolean; #IMPLIED>
+
+<!ELEMENT propertyref EMPTY>
+<!ATTLIST propertyref
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          builtin (all | system | commandline) #IMPLIED
+          regex %string; #IMPLIED
+          prefix %string; #IMPLIED>
+
+<!ELEMENT chainedmapper (mapper)*>
+<!ATTLIST chainedmapper
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT tarfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST tarfileset
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          username %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          uid %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          group %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          gid %string; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT regexpmapper EMPTY>
+<!ATTLIST regexpmapper
+          id ID #IMPLIED
+          handledirsep %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT zipentry EMPTY>
+<!ATTLIST zipentry
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          encoding %string; #IMPLIED
+          archive %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          mode %string; #IMPLIED
+          directory %boolean; #IMPLIED
+          exists %boolean; #IMPLIED
+          zipfile %string; #IMPLIED
+          description %string; #IMPLIED
+          size %string; #IMPLIED>
+
+<!ELEMENT resources EMPTY>
+<!ATTLIST resources
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT scriptmapper (#PCDATA | classpath)*>
+<!ATTLIST scriptmapper
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          manager %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED
+          src %string; #IMPLIED
+          language %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT unpackagemapper EMPTY>
+<!ATTLIST unpackagemapper
+          id ID #IMPLIED
+          handledirsep %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT compositemapper (mapper)*>
+<!ATTLIST compositemapper
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT first EMPTY>
+<!ATTLIST first
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          count %string; #IMPLIED>
+
+<!ELEMENT string EMPTY>
+<!ATTLIST string
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          encoding %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          directory %boolean; #IMPLIED
+          value %string; #IMPLIED
+          exists %boolean; #IMPLIED
+          description %string; #IMPLIED
+          size %string; #IMPLIED>
+
+<!ELEMENT propertyresource EMPTY>
+<!ATTLIST propertyresource
+          id ID #IMPLIED
+          directory %boolean; #IMPLIED
+          name %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          size %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          exists %boolean; #IMPLIED>
+
+<!ELEMENT flattenmapper EMPTY>
+<!ATTLIST flattenmapper
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST description
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT scriptfilter (#PCDATA | classpath)*>
+<!ATTLIST scriptfilter
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          byline %boolean; #IMPLIED
+          token %string; #IMPLIED
+          manager %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED
+          src %string; #IMPLIED
+          language %string; #IMPLIED>
+
+<!ELEMENT concatfilter EMPTY>
+<!ATTLIST concatfilter
+          id ID #IMPLIED
+          append %string; #IMPLIED
+          prepend %string; #IMPLIED>
+
+<!ELEMENT scriptselector (#PCDATA | classpath)*>
+<!ATTLIST scriptselector
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          src %string; #IMPLIED
+          classpath %string; #IMPLIED
+          manager %string; #IMPLIED
+          selected %boolean; #IMPLIED
+          language %string; #IMPLIED
+          setbeans %boolean; #IMPLIED
+          error %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT xmlcatalog (entity | classpath | catalogpath | xmlcatalog | dtd)*>
+<!ATTLIST xmlcatalog
+          id ID #IMPLIED
+          catalogpathref IDREF #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT entity EMPTY>
+<!ATTLIST entity
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          base %string; #IMPLIED
+          publicid %string; #IMPLIED>
+
+<!ELEMENT catalogpath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST catalogpath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT dtd EMPTY>
+<!ATTLIST dtd
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          base %string; #IMPLIED
+          publicid %string; #IMPLIED>
+
+<!ELEMENT filetokenizer EMPTY>
+<!ATTLIST filetokenizer
+          id ID #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT filtermapper (headfilter | classconstants | linecontains | filterreader | replaceregex | replacetokens | escapeunicode | ignoreblank | tailfilter | tabstospaces | prefixlines | trim | expandproperties | striplinebreaks | replacestring | striplinecomments | tokenfilter | stripjavacomments | containsregex | deletecharacters | linecontainsregexp)*>
+<!ATTLIST filtermapper
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT headfilter EMPTY>
+<!ATTLIST headfilter
+          id ID #IMPLIED
+          lines %string; #IMPLIED
+          skip %string; #IMPLIED>
+
+<!ELEMENT classconstants EMPTY>
+<!ATTLIST classconstants
+          id ID #IMPLIED>
+
+<!ELEMENT linecontains (contains)*>
+<!ATTLIST linecontains
+          id ID #IMPLIED
+          negate %boolean; #IMPLIED>
+
+<!ELEMENT replaceregex EMPTY>
+<!ATTLIST replaceregex
+          id ID #IMPLIED
+          flags %string; #IMPLIED
+          byline %boolean; #IMPLIED
+          replace %string; #IMPLIED
+          description %string; #IMPLIED
+          pattern %string; #IMPLIED>
+
+<!ELEMENT replacetokens (token)*>
+<!ATTLIST replacetokens
+          id ID #IMPLIED
+          begintoken %string; #IMPLIED
+          endtoken %string; #IMPLIED>
+
+<!ELEMENT token EMPTY>
+<!ATTLIST token
+          id ID #IMPLIED
+          key %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT escapeunicode EMPTY>
+<!ATTLIST escapeunicode
+          id ID #IMPLIED>
+
+<!ELEMENT ignoreblank EMPTY>
+<!ATTLIST ignoreblank
+          id ID #IMPLIED
+          byline %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT tailfilter EMPTY>
+<!ATTLIST tailfilter
+          id ID #IMPLIED
+          lines %string; #IMPLIED
+          skip %string; #IMPLIED>
+
+<!ELEMENT tabstospaces EMPTY>
+<!ATTLIST tabstospaces
+          id ID #IMPLIED
+          tablength %string; #IMPLIED>
+
+<!ELEMENT prefixlines EMPTY>
+<!ATTLIST prefixlines
+          id ID #IMPLIED
+          prefix %string; #IMPLIED>
+
+<!ELEMENT trim EMPTY>
+<!ATTLIST trim
+          id ID #IMPLIED
+          byline %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT expandproperties EMPTY>
+<!ATTLIST expandproperties
+          id ID #IMPLIED>
+
+<!ELEMENT striplinebreaks EMPTY>
+<!ATTLIST striplinebreaks
+          id ID #IMPLIED
+          linebreaks %string; #IMPLIED>
+
+<!ELEMENT replacestring EMPTY>
+<!ATTLIST replacestring
+          id ID #IMPLIED
+          byline %boolean; #IMPLIED
+          description %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT striplinecomments (comment)*>
+<!ATTLIST striplinecomments
+          id ID #IMPLIED>
+
+<!ELEMENT comment EMPTY>
+<!ATTLIST comment
+          id ID #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT tokenfilter (containsstring | linetokenizer | trim | stringtokenizer | replaceregex | replacestring | ignoreblank | deletecharacters | containsregex | filetokenizer)*>
+<!ATTLIST tokenfilter
+          id ID #IMPLIED
+          delimoutput %string; #IMPLIED>
+
+<!ELEMENT containsstring EMPTY>
+<!ATTLIST containsstring
+          id ID #IMPLIED
+          contains %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT linetokenizer EMPTY>
+<!ATTLIST linetokenizer
+          id ID #IMPLIED
+          includedelims %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT deletecharacters EMPTY>
+<!ATTLIST deletecharacters
+          id ID #IMPLIED
+          description %string; #IMPLIED
+          chars %string; #IMPLIED>
+
+<!ELEMENT containsregex EMPTY>
+<!ATTLIST containsregex
+          id ID #IMPLIED
+          flags %string; #IMPLIED
+          byline %boolean; #IMPLIED
+          replace %string; #IMPLIED
+          description %string; #IMPLIED
+          pattern %string; #IMPLIED>
+
+<!ELEMENT stripjavacomments EMPTY>
+<!ATTLIST stripjavacomments
+          id ID #IMPLIED>
+
+<!ELEMENT linecontainsregexp (regexp)*>
+<!ATTLIST linecontainsregexp
+          id ID #IMPLIED
+          negate %boolean; #IMPLIED>
+
+<!ELEMENT regexp EMPTY>
+<!ATTLIST regexp
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          pattern %restring; #IMPLIED>
+
+<!ELEMENT packagemapper EMPTY>
+<!ATTLIST packagemapper
+          id ID #IMPLIED
+          handledirsep %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT bzip2resource EMPTY>
+<!ATTLIST bzip2resource
+          id ID #IMPLIED
+          directory %boolean; #IMPLIED
+          name %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          size %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          exists %boolean; #IMPLIED>
+
+<!ELEMENT filterchain (headfilter | classconstants | linecontains | filterreader | replaceregex | replacetokens | escapeunicode | ignoreblank | tailfilter | tabstospaces | prefixlines | trim | expandproperties | striplinebreaks | replacestring | striplinecomments | tokenfilter | stripjavacomments | containsregex | deletecharacters | linecontainsregexp)*>
+<!ATTLIST filterchain
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT filterset (filterset | filter | filtersfile)*>
+<!ATTLIST filterset
+          id ID #IMPLIED
+          begintoken %string; #IMPLIED
+          onmissingfiltersfile (fail | warn | ignore) #IMPLIED
+          endtoken %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          recurse %boolean; #IMPLIED
+          filtersfile %string; #IMPLIED>
+
+<!ELEMENT filter EMPTY>
+<!ATTLIST filter
+          id ID #IMPLIED
+          token %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT filtersfile EMPTY>
+<!ATTLIST filtersfile
+          id ID #IMPLIED
+          file %string; #IMPLIED>
+
+<!ELEMENT classfileset (patternset | exclude | include | custom | rootfileset | present | none | not | type | modified | or | contains | depend | different | size | majority | containsregexp | root | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST classfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          rootclass %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT rootfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST rootfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT root EMPTY>
+<!ATTLIST root
+          id ID #IMPLIED
+          classname %string; #IMPLIED>
+
+<!ELEMENT files (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST files
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT intersect EMPTY>
+<!ATTLIST intersect
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT union EMPTY>
+<!ATTLIST union
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT resource EMPTY>
+<!ATTLIST resource
+          id ID #IMPLIED
+          directory %boolean; #IMPLIED
+          name %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          size %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          exists %boolean; #IMPLIED>
+
+<!ELEMENT tokens EMPTY>
+<!ATTLIST tokens
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED>
+
+<!ELEMENT assertions (disable | enable)*>
+<!ATTLIST assertions
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          enablesystemassertions %boolean; #IMPLIED>
+
+<!ELEMENT disable EMPTY>
+<!ATTLIST disable
+          id ID #IMPLIED
+          package %string; #IMPLIED
+          class %string; #IMPLIED>
+
+<!ELEMENT enable EMPTY>
+<!ATTLIST enable
+          id ID #IMPLIED
+          package %string; #IMPLIED
+          class %string; #IMPLIED>
+
+<!ELEMENT substitution EMPTY>
+<!ATTLIST substitution
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          expression %rplstring; #IMPLIED>
+
+<!ELEMENT zipfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST zipfileset
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT signedselector EMPTY>
+<!ATTLIST signedselector
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT tarentry EMPTY>
+<!ATTLIST tarentry
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          archive %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          mode %string; #IMPLIED
+          directory %boolean; #IMPLIED
+          exists %boolean; #IMPLIED
+          description %string; #IMPLIED
+          size %string; #IMPLIED>
+
+<!ELEMENT redirector (errorfilterchain | outputfilterchain | errormapper | inputfilterchain | outputmapper | inputmapper)*>
+<!ATTLIST redirector
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          inputencoding %string; #IMPLIED
+          append %boolean; #IMPLIED
+          output %string; #IMPLIED
+          createemptyfiles %boolean; #IMPLIED
+          outputproperty %string; #IMPLIED
+          error %string; #IMPLIED
+          errorproperty %string; #IMPLIED
+          outputencoding %string; #IMPLIED
+          inputstring %string; #IMPLIED
+          alwayslog %boolean; #IMPLIED
+          loginputstring %boolean; #IMPLIED
+          input %string; #IMPLIED
+          description %string; #IMPLIED
+          errorencoding %string; #IMPLIED
+          logerror %boolean; #IMPLIED>
+
+<!ELEMENT errorfilterchain (headfilter | classconstants | linecontains | filterreader | replaceregex | replacetokens | escapeunicode | ignoreblank | tailfilter | tabstospaces | prefixlines | trim | expandproperties | striplinebreaks | replacestring | striplinecomments | tokenfilter | stripjavacomments | containsregex | deletecharacters | linecontainsregexp)*>
+<!ATTLIST errorfilterchain
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT outputfilterchain (headfilter | classconstants | linecontains | filterreader | replaceregex | replacetokens | escapeunicode | ignoreblank | tailfilter | tabstospaces | prefixlines | trim | expandproperties | striplinebreaks | replacestring | striplinecomments | tokenfilter | stripjavacomments | containsregex | deletecharacters | linecontainsregexp)*>
+<!ATTLIST outputfilterchain
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT errormapper (classpath | mapper)*>
+<!ATTLIST errormapper
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          type (identity | flatten | glob | merge | regexp | package | unpackage) #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT inputfilterchain (headfilter | classconstants | linecontains | filterreader | replaceregex | replacetokens | escapeunicode | ignoreblank | tailfilter | tabstospaces | prefixlines | trim | expandproperties | striplinebreaks | replacestring | striplinecomments | tokenfilter | stripjavacomments | containsregex | deletecharacters | linecontainsregexp)*>
+<!ATTLIST inputfilterchain
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT outputmapper (classpath | mapper)*>
+<!ATTLIST outputmapper
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          type (identity | flatten | glob | merge | regexp | package | unpackage) #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT inputmapper (classpath | mapper)*>
+<!ATTLIST inputmapper
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          type (identity | flatten | glob | merge | regexp | package | unpackage) #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT restrict EMPTY>
+<!ATTLIST restrict
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT globmapper EMPTY>
+<!ATTLIST globmapper
+          id ID #IMPLIED
+          handledirsep %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT identitymapper EMPTY>
+<!ATTLIST identitymapper
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT javaresource (classpath)*>
+<!ATTLIST javaresource
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          classpath %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          directory %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          loaderref IDREF #IMPLIED
+          exists %boolean; #IMPLIED
+          description %string; #IMPLIED
+          size %string; #IMPLIED>
+
+<!ELEMENT gzipresource EMPTY>
+<!ATTLIST gzipresource
+          id ID #IMPLIED
+          directory %boolean; #IMPLIED
+          name %string; #IMPLIED
+          lastmodified %string; #IMPLIED
+          size %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          exists %boolean; #IMPLIED>
+
+<!ELEMENT sort EMPTY>
+<!ATTLIST sort
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT propertyfile (entry)*>
+<!ATTLIST propertyfile
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          comment %string; #IMPLIED>
+
+<!ELEMENT entry EMPTY>
+<!ATTLIST entry
+          id ID #IMPLIED
+          operation %string; #IMPLIED
+          default %string; #IMPLIED
+          key %string; #IMPLIED
+          type (int | date | string) #IMPLIED
+          unit (millisecond | second | minute | hour | day | week | month | year) #IMPLIED
+          value %string; #IMPLIED
+          pattern %string; #IMPLIED>
+
+<!ELEMENT ccmkdir EMPTY>
+<!ATTLIST ccmkdir
+          id ID #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          objselect %string; #IMPLIED
+          nocheckout %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT importtypelib EMPTY>
+<!ATTLIST importtypelib
+          id ID #IMPLIED
+          unsafe %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          usesysarray %boolean; #IMPLIED
+          namespace %string; #IMPLIED
+          description %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          srcfile %string; #IMPLIED
+          destfile %string; #IMPLIED>
+
+<!ELEMENT vsscheckin EMPTY>
+<!ATTLIST vsscheckin
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          autoresponse %string; #IMPLIED
+          vsspath %string; #IMPLIED
+          comment %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          writable %boolean; #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT sql (#PCDATA | fileset | classpath | transaction)*>
+<!ATTLIST sql
+          id ID #IMPLIED
+          onerror (continue | stop | abort) #IMPLIED
+          userid %string; #IMPLIED
+          password %string; #IMPLIED
+          autocommit %boolean; #IMPLIED
+          rdbms %string; #IMPLIED
+          print %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          encoding %string; #IMPLIED
+          version %string; #IMPLIED
+          url %string; #IMPLIED
+          src %string; #IMPLIED
+          showtrailers %boolean; #IMPLIED
+          output %string; #IMPLIED
+          driver %string; #IMPLIED
+          showheaders %boolean; #IMPLIED
+          classpath %string; #IMPLIED
+          delimitertype (normal | row) #IMPLIED
+          escapeprocessing %boolean; #IMPLIED
+          description %string; #IMPLIED
+          expandproperties %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          caching %boolean; #IMPLIED
+          keepformat %boolean; #IMPLIED
+          delimiter %string; #IMPLIED>
+
+<!ELEMENT transaction (#PCDATA)>
+<!ATTLIST transaction
+          id ID #IMPLIED
+          srcresource %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT cvspass EMPTY>
+<!ATTLIST cvspass
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          password %string; #IMPLIED
+          description %string; #IMPLIED
+          cvsroot %string; #IMPLIED
+          passfile %string; #IMPLIED>
+
+<!ELEMENT image (patternset | exclude | include | custom | present | none | not | type | modified | or | contains | depend | draw | fileset | different | size | majority | containsregexp | filename | selector | rotate | includesfile | imageoperation | date | excludesfile | depth | and | scale)*>
+<!ATTLIST image
+          id ID #IMPLIED
+          encoding %string; #IMPLIED
+          destdir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          srcdir %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          gc %boolean; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT draw (draw | rotate | arc | rectangle | ellipse | scale | text)*>
+<!ATTLIST draw
+          id ID #IMPLIED
+          xloc %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          yloc %string; #IMPLIED>
+
+<!ELEMENT rotate (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST rotate
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          angle %string; #IMPLIED>
+
+<!ELEMENT rectangle (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST rectangle
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          width %string; #IMPLIED
+          archeight %string; #IMPLIED
+          description %string; #IMPLIED
+          height %string; #IMPLIED
+          fill %string; #IMPLIED
+          stroke %string; #IMPLIED
+          arcwidth %string; #IMPLIED
+          strokewidth %string; #IMPLIED>
+
+<!ELEMENT scale (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST scale
+          id ID #IMPLIED
+          height %string; #IMPLIED
+          refid IDREF #IMPLIED
+          width %string; #IMPLIED
+          description %string; #IMPLIED
+          proportions (ignore | width | height | cover | fit) #IMPLIED>
+
+<!ELEMENT text (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST text
+          id ID #IMPLIED
+          point %string; #IMPLIED
+          italic %boolean; #IMPLIED
+          color %string; #IMPLIED
+          font %string; #IMPLIED
+          string %string; #IMPLIED
+          bold %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT arc (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST arc
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          start %string; #IMPLIED
+          width %string; #IMPLIED
+          type %string; #IMPLIED
+          stop %string; #IMPLIED
+          description %string; #IMPLIED
+          height %string; #IMPLIED
+          fill %string; #IMPLIED
+          stroke %string; #IMPLIED
+          strokewidth %string; #IMPLIED>
+
+<!ELEMENT ellipse (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST ellipse
+          id ID #IMPLIED
+          height %string; #IMPLIED
+          strokewidth %string; #IMPLIED
+          refid IDREF #IMPLIED
+          width %string; #IMPLIED
+          description %string; #IMPLIED
+          stroke %string; #IMPLIED
+          fill %string; #IMPLIED>
+
+<!ELEMENT imageoperation (draw | rotate | rectangle | scale | text)*>
+<!ATTLIST imageoperation
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT csc (patternset | exclude | include | custom | present | none | resource | define | not | type | modified | reference | src | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST csc
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          executable %string; #IMPLIED
+          destfile %string; #IMPLIED
+          win32icon %string; #IMPLIED
+          definitions %string; #IMPLIED
+          referencefiles %string; #IMPLIED
+          fullpaths %boolean; #IMPLIED
+          description %string; #IMPLIED
+          outputfile %string; #IMPLIED
+          includes %string; #IMPLIED
+          mainclass %string; #IMPLIED
+          utf8output %boolean; #IMPLIED
+          useresponsefile %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          includedefaultreferences %boolean; #IMPLIED
+          warnlevel %string; #IMPLIED
+          win32res %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          extraoptions %string; #IMPLIED
+          incremental %boolean; #IMPLIED
+          noconfig %boolean; #IMPLIED
+          includesfile %string; #IMPLIED
+          references %string; #IMPLIED
+          taskname %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          optimize %boolean; #IMPLIED
+          additionalmodules %string; #IMPLIED
+          docfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          unsafe %boolean; #IMPLIED
+          filealign %string; #IMPLIED
+          targettype (exe | library | module | winexe) #IMPLIED>
+
+<!ELEMENT define EMPTY>
+<!ATTLIST define
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED>
+
+<!ELEMENT reference (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST reference
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT src (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST src
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT loadresource (filterchain)*>
+<!ATTLIST loadresource
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          property %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT dirname EMPTY>
+<!ATTLIST dirname
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT replaceregexp (fileset | substitution | regexp)*>
+<!ATTLIST replaceregexp
+          id ID #IMPLIED
+          flags %string; #IMPLIED
+          taskname %string; #IMPLIED
+          match %restring; #IMPLIED
+          byline %boolean; #IMPLIED
+          replace %rplstring; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED>
+
+<!ELEMENT get EMPTY>
+<!ATTLIST get
+          id ID #IMPLIED
+          src %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          ignoreerrors %boolean; #IMPLIED
+          username %string; #IMPLIED
+          usetimestamp %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          password %string; #IMPLIED>
+
+<!ELEMENT jjtree EMPTY>
+<!ATTLIST jjtree
+          id ID #IMPLIED
+          nodedefaultvoid %boolean; #IMPLIED
+          buildnodefiles %boolean; #IMPLIED
+          outputdirectory %string; #IMPLIED
+          outputfile %string; #IMPLIED
+          static %boolean; #IMPLIED
+          javacchome %string; #IMPLIED
+          nodeprefix %string; #IMPLIED
+          nodefactory %boolean; #IMPLIED
+          multi %boolean; #IMPLIED
+          visitor %boolean; #IMPLIED
+          target %string; #IMPLIED
+          nodeusesparser %boolean; #IMPLIED
+          visitorexception %string; #IMPLIED
+          nodescopehook %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          nodepackage %string; #IMPLIED>
+
+<!ELEMENT sleep EMPTY>
+<!ATTLIST sleep
+          id ID #IMPLIED
+          hours %string; #IMPLIED
+          taskname %string; #IMPLIED
+          milliseconds %string; #IMPLIED
+          minutes %string; #IMPLIED
+          description %string; #IMPLIED
+          seconds %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT jarlib-display (fileset)*>
+<!ATTLIST jarlib-display
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT length EMPTY>
+<!ATTLIST length
+          id ID #IMPLIED
+          length %string; #IMPLIED
+          file %string; #IMPLIED
+          trim %boolean; #IMPLIED
+          mode (each | all) #IMPLIED
+          string %string; #IMPLIED
+          when (equal | greater | less | ne | ge | le | eq | gt | lt | more) #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT dependset (patternset | exclude | include | custom | sources | present | none | not | type | targetfileset | srcfileset | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | srcfilelist | date | excludesfile | targets | depth | and | targetfilelist)*>
+<!ATTLIST dependset
+          id ID #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT sources EMPTY>
+<!ATTLIST sources
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT targetfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST targetfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT srcfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST srcfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT srcfilelist (file)*>
+<!ATTLIST srcfilelist
+          id ID #IMPLIED
+          dir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          files %string; #IMPLIED>
+
+<!ELEMENT targets (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST targets
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT targetfilelist (file)*>
+<!ATTLIST targetfilelist
+          id ID #IMPLIED
+          dir %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          files %string; #IMPLIED>
+
+<!ELEMENT zip (patternset | exclude | include | custom | present | none | not | type | modified | or | contains | depend | fileset | different | size | majority | containsregexp | filename | selector | includesfile | zipgroupfileset | zipfileset | date | excludesfile | depth | and)*>
+<!ATTLIST zip
+          id ID #IMPLIED
+          level %string; #IMPLIED
+          whenempty (fail | skip | create) #IMPLIED
+          keepcompression %boolean; #IMPLIED
+          duplicate (add | preserve | fail) #IMPLIED
+          comment %string; #IMPLIED
+          roundup %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          basedir %string; #IMPLIED
+          encoding %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          update %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          filesonly %boolean; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          zipfile %string; #IMPLIED>
+
+<!ELEMENT zipgroupfileset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST zipgroupfileset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT patch EMPTY>
+<!ATTLIST patch
+          id ID #IMPLIED
+          strip %string; #IMPLIED
+          dir %string; #IMPLIED
+          destfile %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          originalfile %string; #IMPLIED
+          patchfile %string; #IMPLIED
+          reverse %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          backups %boolean; #IMPLIED
+          ignorewhitespace %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT jspc (patternset | exclude | include | custom | present | none | not | type | compilerclasspath | modified | or | contains | depend | classpath | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | webapp | depth | and)*>
+<!ATTLIST jspc
+          id ID #IMPLIED
+          mapped %boolean; #IMPLIED
+          ieplugin %string; #IMPLIED
+          excludes %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          package %string; #IMPLIED
+          destdir %string; #IMPLIED
+          compilerclasspath %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          uribase %string; #IMPLIED
+          classpath %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          verbose %string; #IMPLIED
+          compiler %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          webxml %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          uriroot %string; #IMPLIED
+          webinc %string; #IMPLIED>
+
+<!ELEMENT compilerclasspath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST compilerclasspath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT webapp EMPTY>
+<!ATTLIST webapp
+          id ID #IMPLIED
+          basedir %string; #IMPLIED>
+
+<!ELEMENT style (patternset | exclude | include | custom | present | none | not | type | factory | modified | param | or | contains | depend | classpath | different | size | majority | containsregexp | filename | xmlcatalog | selector | includesfile | outputproperty | style | mapper | date | excludesfile | depth | and)*>
+<!ATTLIST style
+          id ID #IMPLIED
+          force %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          filenameparameter %string; #IMPLIED
+          processor %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          basedir %string; #IMPLIED
+          destdir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          scanincludeddirectories %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          extension %string; #IMPLIED
+          in %string; #IMPLIED
+          xslresource %string; #IMPLIED
+          classpath %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          reloadstylesheet %boolean; #IMPLIED
+          filedirparameter %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          out %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          style %string; #IMPLIED
+          taskname %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          useimplicitfileset %boolean; #IMPLIED>
+
+<!ELEMENT factory (attribute)*>
+<!ATTLIST factory
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute
+          id ID #IMPLIED>
+
+<!ELEMENT outputproperty EMPTY>
+<!ATTLIST outputproperty
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT nice EMPTY>
+<!ATTLIST nice
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          newpriority %string; #IMPLIED
+          currentpriority %string; #IMPLIED>
+
+<!ELEMENT tstamp (format)*>
+<!ATTLIST tstamp
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED>
+
+<!ELEMENT format EMPTY>
+<!ATTLIST format
+          id ID #IMPLIED
+          locale %string; #IMPLIED
+          timezone %string; #IMPLIED
+          unit (millisecond | second | minute | hour | day | week | month | year) #IMPLIED
+          property %string; #IMPLIED
+          pattern %string; #IMPLIED
+          offset %string; #IMPLIED>
+
+<!ELEMENT unwar (fileset | patternset | mapper)*>
+<!ATTLIST unwar
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT vsshistory EMPTY>
+<!ATTLIST vsshistory
+          id ID #IMPLIED
+          style (brief | codediff | nofile | default) #IMPLIED
+          numdays %string; #IMPLIED
+          todate %string; #IMPLIED
+          output %string; #IMPLIED
+          fromlabel %string; #IMPLIED
+          ssdir %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          vsspath %string; #IMPLIED
+          fromdate %string; #IMPLIED
+          user %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          tolabel %string; #IMPLIED
+          dateformat %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT cvschangelog (fileset | user | commandline)*>
+<!ATTLIST cvschangelog
+          id ID #IMPLIED
+          cvsrsh %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          passfile %string; #IMPLIED
+          end %string; #IMPLIED
+          command %string; #IMPLIED
+          package %string; #IMPLIED
+          start %string; #IMPLIED
+          cvsroot %string; #IMPLIED
+          reallyquiet %boolean; #IMPLIED
+          output %string; #IMPLIED
+          port %string; #IMPLIED
+          compressionlevel %string; #IMPLIED
+          dest %string; #IMPLIED
+          destfile %string; #IMPLIED
+          usersfile %string; #IMPLIED
+          dir %string; #IMPLIED
+          noexec %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          daysinpast %string; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          date %string; #IMPLIED
+          compression %boolean; #IMPLIED
+          tag %string; #IMPLIED>
+
+<!ELEMENT user EMPTY>
+<!ATTLIST user
+          id ID #IMPLIED
+          userid %string; #IMPLIED
+          displayname %string; #IMPLIED>
+
+<!ELEMENT commandline (marker | argument)*>
+<!ATTLIST commandline
+          id ID #IMPLIED
+          executable %string; #IMPLIED>
+
+<!ELEMENT marker EMPTY>
+<!ATTLIST marker
+          id ID #IMPLIED>
+
+<!ELEMENT argument EMPTY>
+<!ATTLIST argument
+          id ID #IMPLIED
+          line %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT ccmcheckin (fileset)*>
+<!ATTLIST ccmcheckin
+          id ID #IMPLIED
+          ccmaction %string; #IMPLIED
+          task %string; #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          ccmdir %string; #IMPLIED
+          comment %string; #IMPLIED>
+
+<!ELEMENT bzip2 EMPTY>
+<!ATTLIST bzip2
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          zipfile %string; #IMPLIED
+          description %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          src %string; #IMPLIED
+          destfile %string; #IMPLIED>
+
+<!ELEMENT sync (preserveintarget | fileset)*>
+<!ATTLIST sync
+          id ID #IMPLIED
+          verbose %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          todir %string; #IMPLIED
+          includeemptydirs %boolean; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          granularity %string; #IMPLIED>
+
+<!ELEMENT preserveintarget (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST preserveintarget
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT vssadd EMPTY>
+<!ATTLIST vssadd
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          autoresponse %string; #IMPLIED
+          vsspath %string; #IMPLIED
+          comment %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          writable %boolean; #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT javadoc (taglet | doclet | package | arg | link | doctitle | bottom | group | packageset | fileset | classpath | sourcepath | footer | source | bootclasspath | header | excludepackage | sourcefiles | tag)*>
+<!ATTLIST javadoc
+          id ID #IMPLIED
+          bottom %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          bootclasspathref IDREF #IMPLIED
+          executable %string; #IMPLIED
+          header %string; #IMPLIED
+          link %string; #IMPLIED
+          noindex %boolean; #IMPLIED
+          access (protected | public | package | private) #IMPLIED
+          doclet %string; #IMPLIED
+          noqualifier %string; #IMPLIED
+          public %boolean; #IMPLIED
+          author %boolean; #IMPLIED
+          footer %string; #IMPLIED
+          docletpath %string; #IMPLIED
+          package %boolean; #IMPLIED
+          useexternalfile %boolean; #IMPLIED
+          description %string; #IMPLIED
+          sourcepathref IDREF #IMPLIED
+          protected %boolean; #IMPLIED
+          breakiterator %boolean; #IMPLIED
+          nonavbar %boolean; #IMPLIED
+          maxmemory %string; #IMPLIED
+          group %string; #IMPLIED
+          source %string; #IMPLIED
+          linkoffline %string; #IMPLIED
+          additionalparam %string; #IMPLIED
+          locale %string; #IMPLIED
+          linksource %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          includenosourcepackages %boolean; #IMPLIED
+          bootclasspath %string; #IMPLIED
+          private %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          charset %string; #IMPLIED
+          nodeprecatedlist %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          stylesheetfile %string; #IMPLIED
+          docencoding %string; #IMPLIED
+          excludepackagenames %string; #IMPLIED
+          docletpathref IDREF #IMPLIED
+          packagenames %string; #IMPLIED
+          windowtitle %string; #IMPLIED
+          notree %boolean; #IMPLIED
+          splitindex %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          packagelist %string; #IMPLIED
+          doctitle %string; #IMPLIED
+          serialwarn %boolean; #IMPLIED
+          old %boolean; #IMPLIED
+          use %boolean; #IMPLIED
+          sourcepath %string; #IMPLIED
+          helpfile %string; #IMPLIED
+          version %boolean; #IMPLIED
+          sourcefiles %string; #IMPLIED
+          extdirs %string; #IMPLIED
+          nohelp %boolean; #IMPLIED
+          nodeprecated %boolean; #IMPLIED
+          overview %string; #IMPLIED>
+
+<!ELEMENT taglet (path)*>
+<!ATTLIST taglet
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT doclet (path | param)*>
+<!ATTLIST doclet
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT package EMPTY>
+<!ATTLIST package
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT arg EMPTY>
+<!ATTLIST arg
+          id ID #IMPLIED
+          line %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT link EMPTY>
+<!ATTLIST link
+          id ID #IMPLIED
+          href %string; #IMPLIED
+          offline %boolean; #IMPLIED
+          packagelistloc %string; #IMPLIED
+          resolvelink %boolean; #IMPLIED>
+
+<!ELEMENT doctitle (#PCDATA)>
+<!ATTLIST doctitle
+          id ID #IMPLIED>
+
+<!ELEMENT bottom (#PCDATA)>
+<!ATTLIST bottom
+          id ID #IMPLIED>
+
+<!ELEMENT group (package | title)*>
+<!ATTLIST group
+          id ID #IMPLIED
+          packages %string; #IMPLIED
+          title %string; #IMPLIED>
+
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+          id ID #IMPLIED>
+
+<!ELEMENT packageset (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST packageset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT sourcepath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST sourcepath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT footer (#PCDATA)>
+<!ATTLIST footer
+          id ID #IMPLIED>
+
+<!ELEMENT source EMPTY>
+<!ATTLIST source
+          id ID #IMPLIED
+          file %string; #IMPLIED>
+
+<!ELEMENT bootclasspath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST bootclasspath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT header (#PCDATA)>
+<!ATTLIST header
+          id ID #IMPLIED>
+
+<!ELEMENT excludepackage EMPTY>
+<!ATTLIST excludepackage
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT sourcefiles EMPTY>
+<!ATTLIST sourcefiles
+          id ID #IMPLIED>
+
+<!ELEMENT tag (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST tag
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          enabled %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          scope %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT makeurl (fileset | path)*>
+<!ATTLIST makeurl
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          separator %string; #IMPLIED
+          validate %boolean; #IMPLIED>
+
+<!ELEMENT translate (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | fileset | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST translate
+          id ID #IMPLIED
+          bundlecountry %string; #IMPLIED
+          bundlelanguage %string; #IMPLIED
+          excludes %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          srcencoding %string; #IMPLIED
+          bundle %string; #IMPLIED
+          bundleencoding %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          destencoding %string; #IMPLIED
+          bundlevariant %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          todir %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          endtoken %string; #IMPLIED
+          forceoverwrite %boolean; #IMPLIED
+          starttoken %string; #IMPLIED>
+
+<!ELEMENT signjar (fileset | sysproperty | path)*>
+<!ATTLIST signjar
+          id ID #IMPLIED
+          keystore %string; #IMPLIED
+          maxmemory %string; #IMPLIED
+          keypass %string; #IMPLIED
+          jar %string; #IMPLIED
+          destdir %string; #IMPLIED
+          internalsf %boolean; #IMPLIED
+          sigfile %string; #IMPLIED
+          tsacert %string; #IMPLIED
+          storepass %string; #IMPLIED
+          signedjar %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          storetype %string; #IMPLIED
+          alias %string; #IMPLIED
+          lazy %boolean; #IMPLIED
+          description %string; #IMPLIED
+          sectionsonly %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          tsaurl %string; #IMPLIED
+          preservelastmodified %boolean; #IMPLIED>
+
+<!ELEMENT sysproperty EMPTY>
+<!ATTLIST sysproperty
+          id ID #IMPLIED
+          key %string; #IMPLIED
+          file %string; #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT cclock EMPTY>
+<!ATTLIST cclock
+          id ID #IMPLIED
+          objsel %string; #IMPLIED
+          replace %boolean; #IMPLIED
+          pname %string; #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          objselect %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          nusers %string; #IMPLIED
+          obsolete %boolean; #IMPLIED>
+
+<!ELEMENT classloader (classpath)*>
+<!ATTLIST classloader
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          classpath %string; #IMPLIED
+          parentfirst %boolean; #IMPLIED
+          reset %boolean; #IMPLIED
+          reverse %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          parentname %string; #IMPLIED>
+
+<!ELEMENT chown (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
+<!ATTLIST chown
+          id ID #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED
+          input %string; #IMPLIED
+          executable %string; #IMPLIED
+          force %boolean; #IMPLIED
+          inputstring %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          command %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          spawn %boolean; #IMPLIED
+          description %string; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          file %string; #IMPLIED
+          logerror %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          output %string; #IMPLIED
+          error %string; #IMPLIED
+          os %string; #IMPLIED
+          owner %string; #IMPLIED
+          dest %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          resultproperty %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          timeout %string; #IMPLIED
+          maxparallel %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          dir %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          type (file | dir | both) #IMPLIED>
+
+<!ELEMENT srcfile EMPTY>
+<!ATTLIST srcfile
+          id ID #IMPLIED>
+
+<!ELEMENT targetfile EMPTY>
+<!ATTLIST targetfile
+          id ID #IMPLIED>
+
+<!ELEMENT env EMPTY>
+<!ATTLIST env
+          id ID #IMPLIED
+          key %string; #IMPLIED
+          file %string; #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT jarlib-available (extensionset | extension)*>
+<!ATTLIST jarlib-available
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT extensionset (fileset | libfileset | extension)*>
+<!ATTLIST extensionset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT WsdlToDotnet (schema)*>
+<!ATTLIST WsdlToDotnet
+          id ID #IMPLIED
+          compiler (microsoft | mono | microsoft-on-mono) #IMPLIED
+          url %string; #IMPLIED
+          srcfile %string; #IMPLIED
+          destfile %string; #IMPLIED
+          server %boolean; #IMPLIED
+          namespace %string; #IMPLIED
+          makeurl %boolean; #IMPLIED
+          language %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          protocol %string; #IMPLIED
+          ideerrors %boolean; #IMPLIED>
+
+<!ELEMENT schema EMPTY>
+<!ATTLIST schema
+          id ID #IMPLIED
+          url %string; #IMPLIED
+          file %string; #IMPLIED
+          makeurl %boolean; #IMPLIED>
+
+<!ELEMENT buildnumber EMPTY>
+<!ATTLIST buildnumber
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT resourcecount EMPTY>
+<!ATTLIST resourcecount
+          id ID #IMPLIED
+          when (equal | greater | less | ne | ge | le | eq | gt | lt | more) #IMPLIED
+          taskname %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          count %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT cvsversion (commandline)*>
+<!ATTLIST cvsversion
+          id ID #IMPLIED
+          cvsrsh %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          passfile %string; #IMPLIED
+          command %string; #IMPLIED
+          package %string; #IMPLIED
+          cvsroot %string; #IMPLIED
+          reallyquiet %boolean; #IMPLIED
+          output %string; #IMPLIED
+          serverversionproperty %string; #IMPLIED
+          port %string; #IMPLIED
+          dest %string; #IMPLIED
+          compressionlevel %string; #IMPLIED
+          clientversionproperty %string; #IMPLIED
+          noexec %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          date %string; #IMPLIED
+          compression %boolean; #IMPLIED
+          tag %string; #IMPLIED>
+
+<!ELEMENT apt (patternset | exclude | include | custom | present | none | extdirs | not | type | modified | src | or | contains | depend | classpath | sourcepath | option | different | size | majority | containsregexp | bootclasspath | filename | selector | includesfile | compilerarg | date | excludesfile | factorypath | depth | and)*>
+<!ATTLIST apt
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          target %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          bootclasspathref IDREF #IMPLIED
+          compiler %string; #IMPLIED
+          executable %string; #IMPLIED
+          debuglevel %string; #IMPLIED
+          memoryinitialsize %string; #IMPLIED
+          deprecation %boolean; #IMPLIED
+          compile %boolean; #IMPLIED
+          includeantruntime %boolean; #IMPLIED
+          description %string; #IMPLIED
+          sourcepathref IDREF #IMPLIED
+          depend %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          source %string; #IMPLIED
+          includejavaruntime %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          factory %string; #IMPLIED
+          tempdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          factorypathref IDREF #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          bootclasspath %string; #IMPLIED
+          preprocessdir %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          proceed %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          fork %boolean; #IMPLIED
+          srcdir %string; #IMPLIED
+          memorymaximumsize %string; #IMPLIED
+          optimize %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          sourcepath %string; #IMPLIED
+          listfiles %boolean; #IMPLIED
+          extdirs %string; #IMPLIED>
+
+<!ELEMENT option EMPTY>
+<!ATTLIST option
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          value %string; #IMPLIED>
+
+<!ELEMENT compilerarg EMPTY>
+<!ATTLIST compilerarg
+          id ID #IMPLIED
+          line %string; #IMPLIED
+          implementation %string; #IMPLIED
+          file %string; #IMPLIED
+          compiler %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT factorypath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST factorypath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT ejbjar (patternset | exclude | include | custom | weblogictoplink | present | none | jboss | borland | weblogic | not | type | modified | iplanet | jonas | or | contains | depend | support | classpath | different | size | majority | websphere | containsregexp | dtd | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST ejbjar
+          id ID #IMPLIED
+          descriptordir %string; #IMPLIED
+          excludes %string; #IMPLIED
+          manifest %string; #IMPLIED
+          destdir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          basenameterminator %string; #IMPLIED
+          classpath %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          cmpversion (1.0 | 2.0) #IMPLIED
+          dependency %string; #IMPLIED
+          basejarname %string; #IMPLIED
+          flatdestdir %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          naming (ejb-name | directory | descriptor | basejarname) #IMPLIED
+          excludesfile %string; #IMPLIED
+          genericjarsuffix %string; #IMPLIED>
+
+<!ELEMENT weblogictoplink (classpath | wlclasspath | sysproperty)*>
+<!ATTLIST weblogictoplink
+          id ID #IMPLIED
+          newcmp %boolean; #IMPLIED
+          ejbdtd %string; #IMPLIED
+          jvmargs %string; #IMPLIED
+          rebuild %boolean; #IMPLIED
+          suffix %string; #IMPLIED
+          args %string; #IMPLIED
+          outputdir %string; #IMPLIED
+          toplinkdtd %string; #IMPLIED
+          wldtd %string; #IMPLIED
+          destdir %string; #IMPLIED
+          weblogicdtd %string; #IMPLIED
+          wlclasspath %string; #IMPLIED
+          jvmdebuglevel %string; #IMPLIED
+          classpath %string; #IMPLIED
+          keepgenerated %string; #IMPLIED
+          compiler %string; #IMPLIED
+          oldcmp %boolean; #IMPLIED
+          keepgeneric %boolean; #IMPLIED
+          ejbcclass %string; #IMPLIED
+          noejbc %boolean; #IMPLIED
+          toplinkdescriptor %string; #IMPLIED
+          genericjarsuffix %string; #IMPLIED>
+
+<!ELEMENT wlclasspath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST wlclasspath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT jboss (classpath)*>
+<!ATTLIST jboss
+          id ID #IMPLIED
+          destdir %string; #IMPLIED
+          genericjarsuffix %string; #IMPLIED
+          classpath %string; #IMPLIED
+          suffix %string; #IMPLIED>
+
+<!ELEMENT borland (classpath)*>
+<!ATTLIST borland
+          id ID #IMPLIED
+          verifyargs %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          genericjarsuffix %string; #IMPLIED
+          java2iiopparams %string; #IMPLIED
+          version %string; #IMPLIED
+          basdtd %string; #IMPLIED
+          verify %boolean; #IMPLIED
+          suffix %string; #IMPLIED
+          generateclient %boolean; #IMPLIED>
+
+<!ELEMENT weblogic (classpath | wlclasspath | sysproperty)*>
+<!ATTLIST weblogic
+          id ID #IMPLIED
+          newcmp %boolean; #IMPLIED
+          ejbdtd %string; #IMPLIED
+          jvmargs %string; #IMPLIED
+          rebuild %boolean; #IMPLIED
+          suffix %string; #IMPLIED
+          args %string; #IMPLIED
+          outputdir %string; #IMPLIED
+          wldtd %string; #IMPLIED
+          destdir %string; #IMPLIED
+          weblogicdtd %string; #IMPLIED
+          wlclasspath %string; #IMPLIED
+          jvmdebuglevel %string; #IMPLIED
+          classpath %string; #IMPLIED
+          keepgenerated %string; #IMPLIED
+          compiler %string; #IMPLIED
+          oldcmp %boolean; #IMPLIED
+          keepgeneric %boolean; #IMPLIED
+          ejbcclass %string; #IMPLIED
+          noejbc %boolean; #IMPLIED
+          genericjarsuffix %string; #IMPLIED>
+
+<!ELEMENT iplanet (classpath)*>
+<!ATTLIST iplanet
+          id ID #IMPLIED
+          destdir %string; #IMPLIED
+          genericjarsuffix %string; #IMPLIED
+          classpath %string; #IMPLIED
+          keepgenerated %boolean; #IMPLIED
+          debug %boolean; #IMPLIED
+          suffix %string; #IMPLIED
+          iashome %string; #IMPLIED>
+
+<!ELEMENT jonas (classpath)*>
+<!ATTLIST jonas
+          id ID #IMPLIED
+          jonasroot %string; #IMPLIED
+          keepgeneric %boolean; #IMPLIED
+          additionalargs %string; #IMPLIED
+          javac %string; #IMPLIED
+          destdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          orb %string; #IMPLIED
+          jarsuffix %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          genericjarsuffix %string; #IMPLIED
+          nogenic %boolean; #IMPLIED
+          rmicopts %string; #IMPLIED
+          javacopts %string; #IMPLIED
+          novalidation %boolean; #IMPLIED
+          keepgenerated %boolean; #IMPLIED
+          nocompil %boolean; #IMPLIED
+          secpropag %boolean; #IMPLIED>
+
+<!ELEMENT support (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST support
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT websphere (classpath | wasclasspath)*>
+<!ATTLIST websphere
+          id ID #IMPLIED
+          newcmp %boolean; #IMPLIED
+          ejbdtd %string; #IMPLIED
+          rmicoptions %string; #IMPLIED
+          noinform %boolean; #IMPLIED
+          rebuild %boolean; #IMPLIED
+          suffix %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          dbschema %string; #IMPLIED
+          destdir %string; #IMPLIED
+          ejbdeploy %boolean; #IMPLIED
+          use35 %boolean; #IMPLIED
+          tempdir %string; #IMPLIED
+          novalidate %boolean; #IMPLIED
+          codegen %boolean; #IMPLIED
+          dbvendor %string; #IMPLIED
+          classpath %string; #IMPLIED
+          wasclasspath %string; #IMPLIED
+          oldcmp %boolean; #IMPLIED
+          dbname %string; #IMPLIED
+          keepgeneric %boolean; #IMPLIED
+          trace %boolean; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          genericjarsuffix %string; #IMPLIED>
+
+<!ELEMENT wasclasspath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST wasclasspath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT war (patternset | exclude | include | custom | present | none | not | manifest | type | metainf | modified | or | contains | depend | lib | fileset | different | size | majority | containsregexp | indexjars | filename | selector | includesfile | zipgroupfileset | zipfileset | classes | date | excludesfile | webinf | depth | and | service)*>
+<!ATTLIST war
+          id ID #IMPLIED
+          level %string; #IMPLIED
+          comment %string; #IMPLIED
+          keepcompression %boolean; #IMPLIED
+          duplicate (add | preserve | fail) #IMPLIED
+          whenempty (fail | skip | create) #IMPLIED
+          roundup %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          basedir %string; #IMPLIED
+          manifest %string; #IMPLIED
+          jarfile %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          index %boolean; #IMPLIED
+          update %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          needxmlfile %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          webxml %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          manifestencoding %string; #IMPLIED
+          filesonly %boolean; #IMPLIED
+          warfile %string; #IMPLIED
+          file %string; #IMPLIED
+          whenmanifestonly (fail | skip | create) #IMPLIED
+          excludesfile %string; #IMPLIED
+          filesetmanifest (skip | merge | mergewithoutmain) #IMPLIED
+          zipfile %string; #IMPLIED>
+
+<!ELEMENT manifest (attribute | section)*>
+<!ATTLIST manifest
+          id ID #IMPLIED>
+
+<!ELEMENT section (attribute)*>
+<!ATTLIST section
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT metainf (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST metainf
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT lib (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST lib
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT indexjars (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST indexjars
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT classes (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST classes
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT webinf (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST webinf
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT service (provider)*>
+<!ATTLIST service
+          id ID #IMPLIED
+          type %string; #IMPLIED
+          description %string; #IMPLIED
+          provider %string; #IMPLIED>
+
+<!ELEMENT provider EMPTY>
+<!ATTLIST provider
+          id ID #IMPLIED
+          description %string; #IMPLIED
+          classname %string; #IMPLIED>
+
+<!ELEMENT copypath (path)*>
+<!ATTLIST copypath
+          id ID #IMPLIED
+          destdir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          preservelastmodified %boolean; #IMPLIED
+          path %string; #IMPLIED
+          granularity %string; #IMPLIED>
+
+<!ELEMENT rename EMPTY>
+<!ATTLIST rename
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          replace %string; #IMPLIED
+          description %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT sequential (%tasks;)*>
+<!ATTLIST sequential
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT serverdeploy (weblogic | generic | jonas)*>
+<!ATTLIST serverdeploy
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          action %string; #IMPLIED
+          source %string; #IMPLIED>
+
+<!ELEMENT generic (arg | classpath | jvmarg)*>
+<!ATTLIST generic
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          password %string; #IMPLIED
+          server %string; #IMPLIED
+          classname %string; #IMPLIED
+          username %string; #IMPLIED>
+
+<!ELEMENT jvmarg EMPTY>
+<!ATTLIST jvmarg
+          id ID #IMPLIED
+          line %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          pathref IDREF #IMPLIED
+          value %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT property (classpath)*>
+<!ATTLIST property
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          name %string; #IMPLIED
+          url %string; #IMPLIED
+          classpath %string; #IMPLIED
+          userproperty %boolean; #IMPLIED
+          file %string; #IMPLIED
+          resource %string; #IMPLIED
+          environment %string; #IMPLIED
+          prefix %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          location %string; #IMPLIED
+          value %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT subant (reference | propertyset | filelist | target | fileset | dirset | buildpath | property | buildpathelement)*>
+<!ATTLIST subant
+          id ID #IMPLIED
+          genericantfile %string; #IMPLIED
+          output %string; #IMPLIED
+          inheritall %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          inheritrefs %boolean; #IMPLIED
+          antfile %string; #IMPLIED
+          target %string; #IMPLIED
+          buildpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          buildpath %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+
+<!ELEMENT buildpath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST buildpath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT buildpathelement EMPTY>
+<!ATTLIST buildpathelement
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT move (filterchain | fileset | filterset | mapper)*>
+<!ATTLIST move
+          id ID #IMPLIED
+          flatten %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          tofile %string; #IMPLIED
+          todir %string; #IMPLIED
+          file %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          includeemptydirs %boolean; #IMPLIED
+          enablemultiplemappings %boolean; #IMPLIED
+          granularity %string; #IMPLIED
+          outputencoding %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          preservelastmodified %boolean; #IMPLIED
+          filtering %boolean; #IMPLIED>
+
+<!ELEMENT ildasm EMPTY>
+<!ATTLIST ildasm
+          id ID #IMPLIED
+          assembler %boolean; #IMPLIED
+          encoding (ascii | utf8 | unicode) #IMPLIED
+          executable %string; #IMPLIED
+          progressbar %boolean; #IMPLIED
+          linenumbers %boolean; #IMPLIED
+          rawexceptionhandling %boolean; #IMPLIED
+          showsource %boolean; #IMPLIED
+          metadata %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          srcfile %string; #IMPLIED
+          bytes %boolean; #IMPLIED
+          resourcedir %string; #IMPLIED
+          quoteallnames %boolean; #IMPLIED
+          description %string; #IMPLIED
+          header %boolean; #IMPLIED
+          visibility %string; #IMPLIED
+          sourcefile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          item %string; #IMPLIED>
+
+<!ELEMENT copydir (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST copydir
+          id ID #IMPLIED
+          flatten %boolean; #IMPLIED
+          src %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          forceoverwrite %boolean; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          filtering %boolean; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT schemavalidate (fileset | classpath | attribute | dtd | xmlcatalog | schema | property)*>
+<!ATTLIST schemavalidate
+          id ID #IMPLIED
+          fullchecking %boolean; #IMPLIED
+          classpath %string; #IMPLIED
+          file %string; #IMPLIED
+          classname %string; #IMPLIED
+          lenient %boolean; #IMPLIED
+          warn %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          nonamespacefile %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          disabledtd %boolean; #IMPLIED
+          nonamespaceurl %string; #IMPLIED>
+
+<!ELEMENT cccheckin EMPTY>
+<!ATTLIST cccheckin
+          id ID #IMPLIED
+          preservetime %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          identical %boolean; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          keepcopy %boolean; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT ccunlock EMPTY>
+<!ATTLIST ccunlock
+          id ID #IMPLIED
+          objsel %string; #IMPLIED
+          pname %string; #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          objselect %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT wljspc (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | classpath | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST wljspc
+          id ID #IMPLIED
+          src %string; #IMPLIED
+          classpath %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dest %string; #IMPLIED
+          package %string; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT fixcrlf (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST fixcrlf
+          id ID #IMPLIED
+          tab (add | asis | remove) #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          cr (add | asis | remove) #IMPLIED
+          destdir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          eol (asis | cr | lf | crlf | mac | unix | dos) #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          javafiles %boolean; #IMPLIED
+          eof (add | asis | remove) #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          tablength %string; #IMPLIED
+          outputencoding %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          fixlast %boolean; #IMPLIED
+          includesfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          preservelastmodified %boolean; #IMPLIED>
+
+<!ELEMENT sosget EMPTY>
+<!ATTLIST sosget
+          id ID #IMPLIED
+          soshome %string; #IMPLIED
+          file %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          vssserverpath %string; #IMPLIED
+          username %string; #IMPLIED
+          sosserverpath %string; #IMPLIED
+          projectpath %string; #IMPLIED
+          version %string; #IMPLIED
+          nocompress %boolean; #IMPLIED
+          nocache %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          soscmd %string; #IMPLIED
+          password %string; #IMPLIED>
+
+<!ELEMENT pathconvert (map | path | mapper)*>
+<!ATTLIST pathconvert
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          pathsep %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          dirsep %string; #IMPLIED
+          setonempty %boolean; #IMPLIED
+          property %string; #IMPLIED
+          targetos %string; #IMPLIED>
+
+<!ELEMENT map EMPTY>
+<!ATTLIST map
+          id ID #IMPLIED
+          from %string; #IMPLIED
+          to %string; #IMPLIED>
+
+<!ELEMENT record EMPTY>
+<!ATTLIST record
+          id ID #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          name %string; #IMPLIED
+          loglevel (error | warn | warning | info | verbose | debug) #IMPLIED
+          description %string; #IMPLIED
+          emacsmode %boolean; #IMPLIED
+          action (start | stop) #IMPLIED>
+
+<!ELEMENT exec (arg | redirector | env)*>
+<!ATTLIST exec
+          id ID #IMPLIED
+          resultproperty %string; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          command %string; #IMPLIED
+          executable %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          errorproperty %string; #IMPLIED
+          os %string; #IMPLIED
+          output %string; #IMPLIED
+          timeout %string; #IMPLIED
+          spawn %boolean; #IMPLIED
+          input %string; #IMPLIED
+          inputstring %string; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          logerror %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          vmlauncher %boolean; #IMPLIED>
+
+<!ELEMENT ccmklabel EMPTY>
+<!ATTLIST ccmklabel
+          id ID #IMPLIED
+          recurse %boolean; #IMPLIED
+          replace %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          typename %string; #IMPLIED
+          comment %string; #IMPLIED
+          version %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          vob %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT execon (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
+<!ATTLIST execon
+          id ID #IMPLIED
+          resultproperty %string; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          force %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          command %string; #IMPLIED
+          type (file | dir | both) #IMPLIED
+          maxparallel %string; #IMPLIED
+          executable %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          errorproperty %string; #IMPLIED
+          os %string; #IMPLIED
+          output %string; #IMPLIED
+          timeout %string; #IMPLIED
+          dest %string; #IMPLIED
+          spawn %boolean; #IMPLIED
+          input %string; #IMPLIED
+          inputstring %string; #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          logerror %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED>
+
+<!ELEMENT ccmcheckout (fileset)*>
+<!ATTLIST ccmcheckout
+          id ID #IMPLIED
+          ccmaction %string; #IMPLIED
+          task %string; #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          ccmdir %string; #IMPLIED
+          comment %string; #IMPLIED>
+
+<!ELEMENT ant (reference | propertyset | property | target)*>
+<!ATTLIST ant
+          id ID #IMPLIED
+          output %string; #IMPLIED
+          taskname %string; #IMPLIED
+          inheritall %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          inheritrefs %boolean; #IMPLIED
+          description %string; #IMPLIED
+          target %string; #IMPLIED
+          antfile %string; #IMPLIED>
+
+<!ELEMENT xmlvalidate (fileset | classpath | attribute | dtd | xmlcatalog | property)*>
+<!ATTLIST xmlvalidate
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          file %string; #IMPLIED
+          classname %string; #IMPLIED
+          lenient %boolean; #IMPLIED
+          warn %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT xslt (patternset | exclude | include | custom | present | none | not | type | factory | modified | param | or | contains | depend | classpath | different | size | majority | containsregexp | filename | xmlcatalog | selector | includesfile | outputproperty | style | mapper | date | excludesfile | depth | and)*>
+<!ATTLIST xslt
+          id ID #IMPLIED
+          force %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          filenameparameter %string; #IMPLIED
+          processor %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          basedir %string; #IMPLIED
+          destdir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          scanincludeddirectories %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          extension %string; #IMPLIED
+          in %string; #IMPLIED
+          xslresource %string; #IMPLIED
+          classpath %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          reloadstylesheet %boolean; #IMPLIED
+          filedirparameter %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          out %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          style %string; #IMPLIED
+          taskname %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          useimplicitfileset %boolean; #IMPLIED>
+
+<!ELEMENT iplanet-ejbc (classpath)*>
+<!ATTLIST iplanet-ejbc
+          id ID #IMPLIED
+          ejbdescriptor %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          classpath %string; #IMPLIED
+          iasdescriptor %string; #IMPLIED
+          iashome %string; #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          keepgenerated %boolean; #IMPLIED>
+
+<!ELEMENT ccmcheckintask (fileset)*>
+<!ATTLIST ccmcheckintask
+          id ID #IMPLIED
+          ccmaction %string; #IMPLIED
+          task %string; #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          ccmdir %string; #IMPLIED
+          comment %string; #IMPLIED>
+
+<!ELEMENT gzip EMPTY>
+<!ATTLIST gzip
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          zipfile %string; #IMPLIED
+          description %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          src %string; #IMPLIED
+          destfile %string; #IMPLIED>
+
+<!ELEMENT native2ascii (patternset | exclude | include | custom | present | none | not | type | arg | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | mapper | date | excludesfile | depth | and)*>
+<!ATTLIST native2ascii
+          id ID #IMPLIED
+          src %string; #IMPLIED
+          encoding %string; #IMPLIED
+          ext %string; #IMPLIED
+          implementation %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          reverse %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT ccrmtype EMPTY>
+<!ATTLIST ccrmtype
+          id ID #IMPLIED
+          viewpath %string; #IMPLIED
+          typename %string; #IMPLIED
+          rmall %boolean; #IMPLIED
+          comment %string; #IMPLIED
+          ignore %boolean; #IMPLIED
+          typekind %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          vob %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT ear (patternset | exclude | include | custom | present | none | not | manifest | type | metainf | modified | or | contains | depend | fileset | different | size | majority | containsregexp | archives | indexjars | filename | selector | includesfile | zipgroupfileset | zipfileset | date | excludesfile | depth | and | service)*>
+<!ATTLIST ear
+          id ID #IMPLIED
+          level %string; #IMPLIED
+          comment %string; #IMPLIED
+          keepcompression %boolean; #IMPLIED
+          whenempty (fail | skip | create) #IMPLIED
+          duplicate (add | preserve | fail) #IMPLIED
+          roundup %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          basedir %string; #IMPLIED
+          manifest %string; #IMPLIED
+          jarfile %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          index %boolean; #IMPLIED
+          update %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          earfile %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          appxml %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          manifestencoding %string; #IMPLIED
+          filesonly %boolean; #IMPLIED
+          file %string; #IMPLIED
+          whenmanifestonly (fail | skip | create) #IMPLIED
+          excludesfile %string; #IMPLIED
+          filesetmanifest (skip | merge | mergewithoutmain) #IMPLIED
+          zipfile %string; #IMPLIED>
+
+<!ELEMENT archives (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST archives
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          filemode %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          src %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          fullpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          prefix %string; #IMPLIED
+          dirmode %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED>
+
+<!ELEMENT input (#PCDATA | handler)*>
+<!ATTLIST input
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          addproperty %string; #IMPLIED
+          description %string; #IMPLIED
+          message %string; #IMPLIED
+          defaultvalue %string; #IMPLIED
+          validargs %string; #IMPLIED>
+
+<!ELEMENT handler (classpath)*>
+<!ATTLIST handler
+          id ID #IMPLIED
+          refid %string; #IMPLIED
+          uri %string; #IMPLIED
+          classpath %string; #IMPLIED
+          classname %string; #IMPLIED
+          type (default | propertyfile | greedy) #IMPLIED
+          classpathref IDREF #IMPLIED
+          loaderref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          reverseloader %boolean; #IMPLIED>
+
+<!ELEMENT presetdef (%tasks;)*>
+<!ATTLIST presetdef
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          name %string; #IMPLIED
+          description %string; #IMPLIED
+          uri %string; #IMPLIED>
+
+<!ELEMENT rmic (patternset | exclude | include | custom | present | none | extdirs | not | type | modified | or | contains | depend | classpath | different | size | majority | containsregexp | filename | selector | includesfile | compilerarg | date | excludesfile | depth | and)*>
+<!ATTLIST rmic
+          id ID #IMPLIED
+          verify %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          iiop %boolean; #IMPLIED
+          idlopts %string; #IMPLIED
+          extdirs %string; #IMPLIED
+          sourcebase %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          base %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          includeantruntime %boolean; #IMPLIED
+          includejavaruntime %boolean; #IMPLIED
+          classpath %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          debug %boolean; #IMPLIED
+          compiler %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          idl %boolean; #IMPLIED
+          iiopopts %string; #IMPLIED
+          classname %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          filtering %boolean; #IMPLIED
+          stubversion %string; #IMPLIED>
+
+<!ELEMENT checksum (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | fileset | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST checksum
+          id ID #IMPLIED
+          excludes %string; #IMPLIED
+          fileext %string; #IMPLIED
+          totalproperty %string; #IMPLIED
+          property %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          readbuffersize %string; #IMPLIED
+          verifyproperty %string; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          todir %string; #IMPLIED
+          algorithm %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          format (CHECKSUM | MD5SUM | SVF) #IMPLIED
+          pattern %string; #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          provider %string; #IMPLIED
+          forceoverwrite %boolean; #IMPLIED>
+
+<!ELEMENT mail (replyto | cc | attachments | header | bcc | fileset | from | to | message)*>
+<!ATTLIST mail
+          id ID #IMPLIED
+          cclist %string; #IMPLIED
+          messagefile %string; #IMPLIED
+          password %string; #IMPLIED
+          encoding (auto | mime | uu | plain) #IMPLIED
+          charset %string; #IMPLIED
+          files %string; #IMPLIED
+          subject %string; #IMPLIED
+          message %string; #IMPLIED
+          ssl %boolean; #IMPLIED
+          tolist %string; #IMPLIED
+          mailport %string; #IMPLIED
+          messagemimetype %string; #IMPLIED
+          from %string; #IMPLIED
+          bcclist %string; #IMPLIED
+          description %string; #IMPLIED
+          replyto %string; #IMPLIED
+          mailhost %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          includefilenames %boolean; #IMPLIED
+          user %string; #IMPLIED>
+
+<!ELEMENT replyto EMPTY>
+<!ATTLIST replyto
+          id ID #IMPLIED
+          address %string; #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT cc EMPTY>
+<!ATTLIST cc
+          id ID #IMPLIED
+          address %string; #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT attachments (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST attachments
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT bcc EMPTY>
+<!ATTLIST bcc
+          id ID #IMPLIED
+          address %string; #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT from EMPTY>
+<!ATTLIST from
+          id ID #IMPLIED
+          address %string; #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT to EMPTY>
+<!ATTLIST to
+          id ID #IMPLIED
+          address %string; #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT message (#PCDATA)>
+<!ATTLIST message
+          id ID #IMPLIED
+          mimetype %string; #IMPLIED
+          description %string; #IMPLIED
+          src %string; #IMPLIED
+          charset %string; #IMPLIED>
+
+<!ELEMENT loadfile (filterchain)*>
+<!ATTLIST loadfile
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          property %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          srcfile %string; #IMPLIED>
+
+<!ELEMENT vsscheckout EMPTY>
+<!ATTLIST vsscheckout
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          date %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          autoresponse %string; #IMPLIED
+          vsspath %string; #IMPLIED
+          getlocalcopy %boolean; #IMPLIED
+          version %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          login %string; #IMPLIED
+          filetimestamp (current | modified | updated) #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          localpath %string; #IMPLIED
+          writablefiles (replace | skip | fail) #IMPLIED>
+
+<!ELEMENT soscheckin EMPTY>
+<!ATTLIST soscheckin
+          id ID #IMPLIED
+          soshome %string; #IMPLIED
+          file %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          vssserverpath %string; #IMPLIED
+          username %string; #IMPLIED
+          sosserverpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          projectpath %string; #IMPLIED
+          nocache %boolean; #IMPLIED
+          nocompress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          soscmd %string; #IMPLIED
+          password %string; #IMPLIED>
+
+<!ELEMENT mimemail (replyto | cc | attachments | header | bcc | fileset | from | to | message)*>
+<!ATTLIST mimemail
+          id ID #IMPLIED
+          cclist %string; #IMPLIED
+          messagefile %string; #IMPLIED
+          password %string; #IMPLIED
+          encoding (auto | mime | uu | plain) #IMPLIED
+          charset %string; #IMPLIED
+          files %string; #IMPLIED
+          subject %string; #IMPLIED
+          message %string; #IMPLIED
+          ssl %boolean; #IMPLIED
+          tolist %string; #IMPLIED
+          mailport %string; #IMPLIED
+          messagemimetype %string; #IMPLIED
+          from %string; #IMPLIED
+          bcclist %string; #IMPLIED
+          description %string; #IMPLIED
+          replyto %string; #IMPLIED
+          mailhost %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          includefilenames %boolean; #IMPLIED
+          user %string; #IMPLIED>
+
+<!ELEMENT gunzip EMPTY>
+<!ATTLIST gunzip
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT concat (#PCDATA | filterchain | fileset | filelist | path | footer | header)*>
+<!ATTLIST concat
+          id ID #IMPLIED
+          force %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          append %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          binary %boolean; #IMPLIED
+          eol (asis | cr | lf | crlf | mac | unix | dos) #IMPLIED
+          outputencoding %string; #IMPLIED
+          taskname %string; #IMPLIED
+          fixlastline %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT cab (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | fileset | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST cab
+          id ID #IMPLIED
+          cabfile %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          basedir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includes %string; #IMPLIED
+          options %string; #IMPLIED>
+
+<!ELEMENT touch (fileset | filelist | mapper)*>
+<!ATTLIST touch
+          id ID #IMPLIED
+          verbose %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          millis %string; #IMPLIED
+          mkdirs %boolean; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          pattern %string; #IMPLIED
+          datetime %string; #IMPLIED>
+
+<!ELEMENT parallel (%tasks; | daemons)*>
+<!ATTLIST parallel
+          id ID #IMPLIED
+          pollinterval %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          threadsperprocessor %string; #IMPLIED
+          timeout %string; #IMPLIED
+          threadcount %string; #IMPLIED
+          failonany %boolean; #IMPLIED>
+
+<!ELEMENT daemons (%tasks;)*>
+<!ATTLIST daemons
+          id ID #IMPLIED>
+
+<!ELEMENT splash EMPTY>
+<!ATTLIST splash
+          id ID #IMPLIED
+          port %string; #IMPLIED
+          user %string; #IMPLIED
+          proxy %string; #IMPLIED
+          imageurl %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          password %string; #IMPLIED
+          showduration %string; #IMPLIED
+          useproxy %boolean; #IMPLIED>
+
+<!ELEMENT antcall (reference | propertyset | target | param)*>
+<!ATTLIST antcall
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          inheritall %boolean; #IMPLIED
+          inheritrefs %boolean; #IMPLIED
+          description %string; #IMPLIED
+          target %string; #IMPLIED>
+
+<!ELEMENT ccmkbl EMPTY>
+<!ATTLIST ccmkbl
+          id ID #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          nlabel %boolean; #IMPLIED
+          full %boolean; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          identical %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          baselinerootname %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT cccheckout EMPTY>
+<!ATTLIST cccheckout
+          id ID #IMPLIED
+          reserved %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          out %string; #IMPLIED
+          notco %boolean; #IMPLIED
+          comment %string; #IMPLIED
+          nodata %boolean; #IMPLIED
+          version %boolean; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          branch %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT typedef (classpath)*>
+<!ATTLIST typedef
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          uri %string; #IMPLIED
+          classpath %string; #IMPLIED
+          file %string; #IMPLIED
+          classname %string; #IMPLIED
+          resource %string; #IMPLIED
+          antlib %string; #IMPLIED
+          adaptto %string; #IMPLIED
+          onerror (fail | report | ignore | failall) #IMPLIED
+          loaderref IDREF #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          adapter %string; #IMPLIED
+          format (properties | xml) #IMPLIED
+          description %string; #IMPLIED
+          reverseloader %boolean; #IMPLIED>
+
+<!ELEMENT xmlproperty (xmlcatalog)*>
+<!ATTLIST xmlproperty
+          id ID #IMPLIED
+          file %string; #IMPLIED
+          semanticattributes %boolean; #IMPLIED
+          keeproot %boolean; #IMPLIED
+          prefix %string; #IMPLIED
+          collapseattributes %boolean; #IMPLIED
+          validate %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          includesemanticattribute %boolean; #IMPLIED
+          rootdirectory %string; #IMPLIED>
+
+<!ELEMENT import EMPTY>
+<!ATTLIST import
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          optional %boolean; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT copy (filterchain | fileset | filterset | mapper)*>
+<!ATTLIST copy
+          id ID #IMPLIED
+          flatten %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          tofile %string; #IMPLIED
+          todir %string; #IMPLIED
+          file %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          includeemptydirs %boolean; #IMPLIED
+          enablemultiplemappings %boolean; #IMPLIED
+          granularity %string; #IMPLIED
+          outputencoding %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          preservelastmodified %boolean; #IMPLIED
+          filtering %boolean; #IMPLIED>
+
+<!ELEMENT jsharpc (patternset | exclude | include | custom | present | none | resource | define | not | type | modified | reference | src | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST jsharpc
+          id ID #IMPLIED
+          references %string; #IMPLIED
+          useresponsefile %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          mainclass %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          additionalmodules %string; #IMPLIED
+          win32icon %string; #IMPLIED
+          destdir %string; #IMPLIED
+          executable %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          utf8output %boolean; #IMPLIED
+          includedefaultreferences %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          optimize %boolean; #IMPLIED
+          targettype (exe | library | module | winexe) #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          win32res %string; #IMPLIED
+          baseaddress %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          securescoping %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          purejava %boolean; #IMPLIED
+          includesfile %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          warnlevel %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          referencefiles %string; #IMPLIED>
+
+<!ELEMENT symlink (fileset)*>
+<!ATTLIST symlink
+          id ID #IMPLIED
+          linkfilename %string; #IMPLIED
+          taskname %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          description %string; #IMPLIED
+          link %string; #IMPLIED
+          action %string; #IMPLIED
+          resource %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT antstructure EMPTY>
+<!ATTLIST antstructure
+          id ID #IMPLIED
+          output %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT script (#PCDATA | classpath)*>
+<!ATTLIST script
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          taskname %string; #IMPLIED
+          manager %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED
+          setbeans %boolean; #IMPLIED
+          src %string; #IMPLIED
+          language %string; #IMPLIED>
+
+<!ELEMENT ccmcreatetask EMPTY>
+<!ATTLIST ccmcreatetask
+          id ID #IMPLIED
+          subsystem %string; #IMPLIED
+          task %string; #IMPLIED
+          platform %string; #IMPLIED
+          resolver %string; #IMPLIED
+          comment %string; #IMPLIED
+          ccmaction %string; #IMPLIED
+          ccmdir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          release %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT rpm EMPTY>
+<!ATTLIST rpm
+          id ID #IMPLIED
+          removesource %boolean; #IMPLIED
+          output %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          command %string; #IMPLIED
+          cleanbuilddir %boolean; #IMPLIED
+          removespec %boolean; #IMPLIED
+          error %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          specfile %string; #IMPLIED
+          topdir %string; #IMPLIED
+          rpmbuildcommand %string; #IMPLIED>
+
+<!ELEMENT delete (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | fileset | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST delete
+          id ID #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          includeemptydirs %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          deleteonexit %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT replace (patternset | exclude | include | custom | present | none | not | type | modified | replacefilter | or | contains | depend | replacetoken | different | size | majority | containsregexp | filename | selector | includesfile | replacevalue | date | excludesfile | depth | and)*>
+<!ATTLIST replace
+          id ID #IMPLIED
+          encoding %string; #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          token %string; #IMPLIED
+          propertyfile %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          summary %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          value %string; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          replacefilterfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT replacefilter EMPTY>
+<!ATTLIST replacefilter
+          id ID #IMPLIED
+          token %string; #IMPLIED
+          value %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT replacetoken (#PCDATA)>
+<!ATTLIST replacetoken
+          id ID #IMPLIED>
+
+<!ELEMENT replacevalue (#PCDATA)>
+<!ATTLIST replacevalue
+          id ID #IMPLIED>
+
+<!ELEMENT attrib (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
+<!ATTLIST attrib
+          id ID #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED
+          input %string; #IMPLIED
+          executable %string; #IMPLIED
+          force %boolean; #IMPLIED
+          inputstring %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          readonly %boolean; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          command %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          spawn %boolean; #IMPLIED
+          hidden %boolean; #IMPLIED
+          description %string; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          file %string; #IMPLIED
+          logerror %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          output %string; #IMPLIED
+          error %string; #IMPLIED
+          os %string; #IMPLIED
+          dest %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          resultproperty %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          timeout %string; #IMPLIED
+          maxparallel %string; #IMPLIED
+          system %boolean; #IMPLIED
+          outputproperty %string; #IMPLIED
+          archive %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          type (file | dir | both) #IMPLIED>
+
+<!ELEMENT verifyjar (fileset | sysproperty | path)*>
+<!ATTLIST verifyjar
+          id ID #IMPLIED
+          storepass %string; #IMPLIED
+          certificates %boolean; #IMPLIED
+          keypass %string; #IMPLIED
+          jar %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          maxmemory %string; #IMPLIED
+          alias %string; #IMPLIED
+          keystore %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          storetype %string; #IMPLIED>
+
+<!ELEMENT waitfor (isfalse | isreference | equals | available | not | contains | os | or | and | filesmatch | checksum | istrue | isset | socket | http | uptodate | isfileselected)*>
+<!ATTLIST waitfor
+          id ID #IMPLIED
+          checkeveryunit (millisecond | second | minute | hour | day | week) #IMPLIED
+          checkevery %string; #IMPLIED
+          maxwaitunit (millisecond | second | minute | hour | day | week) #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          maxwait %string; #IMPLIED
+          timeoutproperty %string; #IMPLIED>
+
+<!ELEMENT isfalse EMPTY>
+<!ATTLIST isfalse
+          id ID #IMPLIED
+          description %string; #IMPLIED
+          value %boolean; #IMPLIED>
+
+<!ELEMENT isreference EMPTY>
+<!ATTLIST isreference
+          id ID #IMPLIED
+          type %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT equals EMPTY>
+<!ATTLIST equals
+          id ID #IMPLIED
+          trim %boolean; #IMPLIED
+          arg2 %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          arg1 %string; #IMPLIED>
+
+<!ELEMENT available (classpath | filepath)*>
+<!ATTLIST available
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          file %string; #IMPLIED
+          classname %string; #IMPLIED
+          resource %string; #IMPLIED
+          ignoresystemclasses %boolean; #IMPLIED
+          type (file | dir) #IMPLIED
+          searchparents %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          value %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          filepath %string; #IMPLIED>
+
+<!ELEMENT filepath (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST filepath
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT os EMPTY>
+<!ATTLIST os
+          id ID #IMPLIED
+          version %string; #IMPLIED
+          name %string; #IMPLIED
+          family %string; #IMPLIED
+          arch %string; #IMPLIED>
+
+<!ELEMENT filesmatch EMPTY>
+<!ATTLIST filesmatch
+          id ID #IMPLIED
+          file2 %string; #IMPLIED
+          file1 %string; #IMPLIED
+          textfile %boolean; #IMPLIED>
+
+<!ELEMENT istrue EMPTY>
+<!ATTLIST istrue
+          id ID #IMPLIED
+          description %string; #IMPLIED
+          value %boolean; #IMPLIED>
+
+<!ELEMENT isset EMPTY>
+<!ATTLIST isset
+          id ID #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED>
+
+<!ELEMENT socket EMPTY>
+<!ATTLIST socket
+          id ID #IMPLIED
+          port %string; #IMPLIED
+          description %string; #IMPLIED
+          server %string; #IMPLIED>
+
+<!ELEMENT http EMPTY>
+<!ATTLIST http
+          id ID #IMPLIED
+          url %string; #IMPLIED
+          description %string; #IMPLIED
+          errorsbeginat %string; #IMPLIED>
+
+<!ELEMENT uptodate (srcfiles | srcresources | mapper)*>
+<!ATTLIST uptodate
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          value %string; #IMPLIED
+          property %string; #IMPLIED
+          srcfile %string; #IMPLIED
+          targetfile %string; #IMPLIED>
+
+<!ELEMENT srcfiles (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST srcfiles
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          file %string; #IMPLIED
+          dir %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT srcresources EMPTY>
+<!ATTLIST srcresources
+          id ID #IMPLIED
+          cache %boolean; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT untar (fileset | patternset | mapper)*>
+<!ATTLIST untar
+          id ID #IMPLIED
+          compression (none | gzip | bzip2) #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT loadproperties (filterchain | classpath)*>
+<!ATTLIST loadproperties
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          taskname %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          resource %string; #IMPLIED
+          srcfile %string; #IMPLIED>
+
+<!ELEMENT echoproperties (propertyset)*>
+<!ATTLIST echoproperties
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          regex %string; #IMPLIED
+          prefix %string; #IMPLIED
+          format (xml | text) #IMPLIED
+          failonerror %boolean; #IMPLIED
+          srcfile %string; #IMPLIED
+          destfile %string; #IMPLIED>
+
+<!ELEMENT junit (classpath | sysproperty | bootclasspath | syspropertyset | env | permissions | test | jvmarg | formatter | batchtest | assertions)*>
+<!ATTLIST junit
+          id ID #IMPLIED
+          fork %boolean; #IMPLIED
+          haltonerror %boolean; #IMPLIED
+          maxmemory %string; #IMPLIED
+          printsummary (true | yes | false | no | on | off | withOutAndErr) #IMPLIED
+          haltonfailure %boolean; #IMPLIED
+          failureproperty %string; #IMPLIED
+          showoutput %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED
+          timeout %string; #IMPLIED
+          tempdir %string; #IMPLIED
+          outputtoformatters %boolean; #IMPLIED
+          jvm %string; #IMPLIED
+          includeantruntime %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          filtertrace %boolean; #IMPLIED
+          description %string; #IMPLIED
+          forkmode (once | perTest | perBatch) #IMPLIED
+          taskname %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          clonevm %boolean; #IMPLIED
+          reloading %boolean; #IMPLIED>
+
+<!ELEMENT syspropertyset (propertyref | propertyset | mapper)*>
+<!ATTLIST syspropertyset
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          dynamic %boolean; #IMPLIED
+          negate %boolean; #IMPLIED>
+
+<!ELEMENT permissions (grant | revoke)*>
+<!ATTLIST permissions
+          id ID #IMPLIED>
+
+<!ELEMENT grant EMPTY>
+<!ATTLIST grant
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          class %string; #IMPLIED
+          actions %string; #IMPLIED>
+
+<!ELEMENT revoke EMPTY>
+<!ATTLIST revoke
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          class %string; #IMPLIED
+          actions %string; #IMPLIED>
+
+<!ELEMENT test (formatter)*>
+<!ATTLIST test
+          id ID #IMPLIED
+          if %string; #IMPLIED
+          unless %string; #IMPLIED
+          name %string; #IMPLIED
+          haltonerror %boolean; #IMPLIED
+          fork %boolean; #IMPLIED
+          todir %string; #IMPLIED
+          outfile %string; #IMPLIED
+          failureproperty %string; #IMPLIED
+          runtime %string; #IMPLIED
+          filtertrace %boolean; #IMPLIED
+          haltonfailure %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED>
+
+<!ELEMENT formatter EMPTY>
+<!ATTLIST formatter
+          id ID #IMPLIED
+          usefile %boolean; #IMPLIED
+          type (plain | xml | brief) #IMPLIED
+          classname %string; #IMPLIED
+          unless %string; #IMPLIED
+          if %string; #IMPLIED
+          extension %string; #IMPLIED>
+
+<!ELEMENT batchtest (fileset | formatter)*>
+<!ATTLIST batchtest
+          id ID #IMPLIED
+          if %string; #IMPLIED
+          unless %string; #IMPLIED
+          haltonerror %boolean; #IMPLIED
+          fork %boolean; #IMPLIED
+          todir %string; #IMPLIED
+          failureproperty %string; #IMPLIED
+          filtertrace %boolean; #IMPLIED
+          haltonfailure %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED>
+
+<!ELEMENT chgrp (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
+<!ATTLIST chgrp
+          id ID #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED
+          input %string; #IMPLIED
+          executable %string; #IMPLIED
+          force %boolean; #IMPLIED
+          inputstring %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          command %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          spawn %boolean; #IMPLIED
+          description %string; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          group %string; #IMPLIED
+          file %string; #IMPLIED
+          logerror %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          output %string; #IMPLIED
+          error %string; #IMPLIED
+          os %string; #IMPLIED
+          dest %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          resultproperty %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          timeout %string; #IMPLIED
+          maxparallel %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          dir %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          type (file | dir | both) #IMPLIED>
+
+<!ELEMENT bunzip2 EMPTY>
+<!ATTLIST bunzip2
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          srcresource %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT whichresource (classpath)*>
+<!ATTLIST whichresource
+          id ID #IMPLIED
+          classpath %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          resource %string; #IMPLIED
+          class %string; #IMPLIED>
+
+<!ELEMENT copyfile EMPTY>
+<!ATTLIST copyfile
+          id ID #IMPLIED
+          forceoverwrite %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          description %string; #IMPLIED
+          src %string; #IMPLIED
+          filtering %string; #IMPLIED>
+
+<!ELEMENT manifestclasspath (classpath)*>
+<!ATTLIST manifestclasspath
+          id ID #IMPLIED
+          jarfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          maxparentlevels %string; #IMPLIED>
+
+<!ELEMENT vsscreate EMPTY>
+<!ATTLIST vsscreate
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          autoresponse %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          vsspath %string; #IMPLIED
+          comment %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT macrodef (sequential | element | attribute | text)*>
+<!ATTLIST macrodef
+          id ID #IMPLIED
+          backtrace %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          name %string; #IMPLIED
+          description %string; #IMPLIED
+          uri %string; #IMPLIED>
+
+<!ELEMENT element EMPTY>
+<!ATTLIST element
+          id ID #IMPLIED
+          implicit %boolean; #IMPLIED
+          name %string; #IMPLIED
+          optional %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT unjar (fileset | patternset | mapper)*>
+<!ATTLIST unjar
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT vbc (patternset | exclude | include | custom | present | none | resource | define | not | type | modified | reference | src | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST vbc
+          id ID #IMPLIED
+          references %string; #IMPLIED
+          useresponsefile %boolean; #IMPLIED
+          removeintchecks %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          mainclass %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          additionalmodules %string; #IMPLIED
+          win32icon %string; #IMPLIED
+          optionstrict %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          executable %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          utf8output %boolean; #IMPLIED
+          includedefaultreferences %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          optimize %boolean; #IMPLIED
+          targettype (exe | library | module | winexe) #IMPLIED
+          destfile %string; #IMPLIED
+          rootnamespace %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          win32res %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          optionexplicit %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          warnlevel %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          optioncompare %string; #IMPLIED
+          imports %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          referencefiles %string; #IMPLIED>
+
+<!ELEMENT echoxml (#PCDATA)>
+<!ATTLIST echoxml
+          id ID #IMPLIED
+          append %boolean; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT wsdltodotnet (schema)*>
+<!ATTLIST wsdltodotnet
+          id ID #IMPLIED
+          compiler (microsoft | mono | microsoft-on-mono) #IMPLIED
+          url %string; #IMPLIED
+          srcfile %string; #IMPLIED
+          destfile %string; #IMPLIED
+          server %boolean; #IMPLIED
+          namespace %string; #IMPLIED
+          makeurl %boolean; #IMPLIED
+          language %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          protocol %string; #IMPLIED
+          ideerrors %boolean; #IMPLIED>
+
+<!ELEMENT mkdir EMPTY>
+<!ATTLIST mkdir
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dir %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT condition (isfalse | isreference | equals | available | not | contains | os | or | and | filesmatch | checksum | istrue | isset | socket | http | uptodate | isfileselected)*>
+<!ATTLIST condition
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          value %string; #IMPLIED
+          property %string; #IMPLIED
+          else %string; #IMPLIED>
+
+<!ELEMENT cvs (commandline)*>
+<!ATTLIST cvs
+          id ID #IMPLIED
+          cvsrsh %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          passfile %string; #IMPLIED
+          command %string; #IMPLIED
+          package %string; #IMPLIED
+          cvsroot %string; #IMPLIED
+          reallyquiet %boolean; #IMPLIED
+          output %string; #IMPLIED
+          port %string; #IMPLIED
+          dest %string; #IMPLIED
+          compressionlevel %string; #IMPLIED
+          noexec %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          date %string; #IMPLIED
+          compression %boolean; #IMPLIED
+          tag %string; #IMPLIED>
+
+<!ELEMENT tempfile EMPTY>
+<!ATTLIST tempfile
+          id ID #IMPLIED
+          destdir %string; #IMPLIED
+          deleteonexit %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          prefix %string; #IMPLIED
+          suffix %string; #IMPLIED>
+
+<!ELEMENT junitreport (report | fileset)*>
+<!ATTLIST junitreport
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          todir %string; #IMPLIED
+          description %string; #IMPLIED
+          tofile %string; #IMPLIED>
+
+<!ELEMENT report (param)*>
+<!ATTLIST report
+          id ID #IMPLIED
+          todir %string; #IMPLIED
+          styledir %string; #IMPLIED
+          format (frames | noframes) #IMPLIED
+          extension %string; #IMPLIED>
+
+<!ELEMENT ccmkattr EMPTY>
+<!ATTLIST ccmkattr
+          id ID #IMPLIED
+          recurse %boolean; #IMPLIED
+          typevalue %string; #IMPLIED
+          replace %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          typename %string; #IMPLIED
+          comment %string; #IMPLIED
+          version %string; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED>
+
+<!ELEMENT taskdef (classpath)*>
+<!ATTLIST taskdef
+          id ID #IMPLIED
+          name %string; #IMPLIED
+          uri %string; #IMPLIED
+          classpath %string; #IMPLIED
+          file %string; #IMPLIED
+          classname %string; #IMPLIED
+          resource %string; #IMPLIED
+          antlib %string; #IMPLIED
+          adaptto %string; #IMPLIED
+          onerror (fail | report | ignore | failall) #IMPLIED
+          loaderref IDREF #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          adapter %string; #IMPLIED
+          format (properties | xml) #IMPLIED
+          description %string; #IMPLIED
+          reverseloader %boolean; #IMPLIED>
+
+<!ELEMENT echo (#PCDATA)>
+<!ATTLIST echo
+          id ID #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          message %string; #IMPLIED
+          encoding %string; #IMPLIED
+          level (error | warn | warning | info | verbose | debug) #IMPLIED>
+
+<!ELEMENT ccupdate EMPTY>
+<!ATTLIST ccupdate
+          id ID #IMPLIED
+          preservetime %boolean; #IMPLIED
+          rename %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          log %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          graphical %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          currenttime %boolean; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT java (classpath | sysproperty | bootclasspath | redirector | syspropertyset | env | permissions | jvmarg | arg | assertions)*>
+<!ATTLIST java
+          id ID #IMPLIED
+          resultproperty %string; #IMPLIED
+          jvmargs %string; #IMPLIED
+          args %string; #IMPLIED
+          fork %boolean; #IMPLIED
+          maxmemory %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          jar %string; #IMPLIED
+          errorproperty %string; #IMPLIED
+          output %string; #IMPLIED
+          timeout %string; #IMPLIED
+          spawn %boolean; #IMPLIED
+          input %string; #IMPLIED
+          jvm %string; #IMPLIED
+          inputstring %string; #IMPLIED
+          classpath %string; #IMPLIED
+          logerror %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          jvmversion %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          classname %string; #IMPLIED
+          clonevm %boolean; #IMPLIED>
+
+<!ELEMENT renameext (patternset | exclude | include | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | and | depth)*>
+<!ATTLIST renameext
+          id ID #IMPLIED
+          replace %boolean; #IMPLIED
+          toextension %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          fromextension %string; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          srcdir %string; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT vsslabel EMPTY>
+<!ATTLIST vsslabel
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          autoresponse %string; #IMPLIED
+          vsspath %string; #IMPLIED
+          comment %string; #IMPLIED
+          version %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT basename EMPTY>
+<!ATTLIST basename
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          file %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          suffix %string; #IMPLIED>
+
+<!ELEMENT javadoc2 (taglet | doclet | package | arg | link | doctitle | bottom | group | packageset | fileset | classpath | sourcepath | footer | source | bootclasspath | header | excludepackage | sourcefiles | tag)*>
+<!ATTLIST javadoc2
+          id ID #IMPLIED
+          bottom %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          bootclasspathref IDREF #IMPLIED
+          executable %string; #IMPLIED
+          header %string; #IMPLIED
+          link %string; #IMPLIED
+          noindex %boolean; #IMPLIED
+          access (protected | public | package | private) #IMPLIED
+          doclet %string; #IMPLIED
+          noqualifier %string; #IMPLIED
+          public %boolean; #IMPLIED
+          author %boolean; #IMPLIED
+          footer %string; #IMPLIED
+          docletpath %string; #IMPLIED
+          package %boolean; #IMPLIED
+          useexternalfile %boolean; #IMPLIED
+          description %string; #IMPLIED
+          sourcepathref IDREF #IMPLIED
+          protected %boolean; #IMPLIED
+          breakiterator %boolean; #IMPLIED
+          nonavbar %boolean; #IMPLIED
+          maxmemory %string; #IMPLIED
+          group %string; #IMPLIED
+          source %string; #IMPLIED
+          linkoffline %string; #IMPLIED
+          additionalparam %string; #IMPLIED
+          locale %string; #IMPLIED
+          linksource %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          includenosourcepackages %boolean; #IMPLIED
+          bootclasspath %string; #IMPLIED
+          private %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          charset %string; #IMPLIED
+          nodeprecatedlist %boolean; #IMPLIED
+          classpathref IDREF #IMPLIED
+          stylesheetfile %string; #IMPLIED
+          docencoding %string; #IMPLIED
+          excludepackagenames %string; #IMPLIED
+          docletpathref IDREF #IMPLIED
+          packagenames %string; #IMPLIED
+          windowtitle %string; #IMPLIED
+          notree %boolean; #IMPLIED
+          splitindex %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          packagelist %string; #IMPLIED
+          doctitle %string; #IMPLIED
+          serialwarn %boolean; #IMPLIED
+          old %boolean; #IMPLIED
+          use %boolean; #IMPLIED
+          sourcepath %string; #IMPLIED
+          helpfile %string; #IMPLIED
+          version %boolean; #IMPLIED
+          sourcefiles %string; #IMPLIED
+          extdirs %string; #IMPLIED
+          nohelp %boolean; #IMPLIED
+          nodeprecated %boolean; #IMPLIED
+          overview %string; #IMPLIED>
+
+<!ELEMENT vsscp EMPTY>
+<!ATTLIST vsscp
+          id ID #IMPLIED
+          login %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          vsspath %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          ssdir %string; #IMPLIED
+          autoresponse %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT tar (patternset | exclude | include | tarfileset | custom | none | present | not | type | modified | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST tar
+          id ID #IMPLIED
+          tarfile %string; #IMPLIED
+          destfile %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          basedir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          compression (none | gzip | bzip2) #IMPLIED
+          longfile (warn | fail | truncate | gnu | omit) #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT setproxy EMPTY>
+<!ATTLIST setproxy
+          id ID #IMPLIED
+          nonproxyhosts %string; #IMPLIED
+          proxyhost %string; #IMPLIED
+          socksproxyhost %string; #IMPLIED
+          proxyport %string; #IMPLIED
+          socksproxyport %string; #IMPLIED
+          taskname %string; #IMPLIED
+          proxyuser %string; #IMPLIED
+          description %string; #IMPLIED
+          proxypassword %string; #IMPLIED>
+
+<!ELEMENT diagnostics EMPTY>
+<!ATTLIST diagnostics
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT ilasm (patternset | exclude | include | custom | present | none | not | type | modified | reference | src | or | contains | depend | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | depth | and)*>
+<!ATTLIST ilasm
+          id ID #IMPLIED
+          owner %string; #IMPLIED
+          excludes %string; #IMPLIED
+          extraoptions %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          targettype (exe | library) #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          debug %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          mono %boolean; #IMPLIED
+          outputfile %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          resourcefile %string; #IMPLIED
+          srcdir %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          listing %boolean; #IMPLIED
+          keyfile %string; #IMPLIED>
+
+<!ELEMENT soscheckout EMPTY>
+<!ATTLIST soscheckout
+          id ID #IMPLIED
+          soshome %string; #IMPLIED
+          file %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          vssserverpath %string; #IMPLIED
+          username %string; #IMPLIED
+          sosserverpath %string; #IMPLIED
+          projectpath %string; #IMPLIED
+          nocache %boolean; #IMPLIED
+          nocompress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          soscmd %string; #IMPLIED
+          password %string; #IMPLIED>
+
+<!ELEMENT apply (mapper | srcfile | targetfile | redirector | filelist | env | fileset | dirset | arg)*>
+<!ATTLIST apply
+          id ID #IMPLIED
+          resultproperty %string; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          force %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          command %string; #IMPLIED
+          type (file | dir | both) #IMPLIED
+          maxparallel %string; #IMPLIED
+          executable %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          errorproperty %string; #IMPLIED
+          os %string; #IMPLIED
+          output %string; #IMPLIED
+          timeout %string; #IMPLIED
+          dest %string; #IMPLIED
+          spawn %boolean; #IMPLIED
+          input %string; #IMPLIED
+          inputstring %string; #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          verbose %boolean; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          logerror %boolean; #IMPLIED
+          dir %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED>
+
+<!ELEMENT jarlib-resolve (ant | location | url | extension)*>
+<!ATTLIST jarlib-resolve
+          id ID #IMPLIED
+          checkextension %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          property %string; #IMPLIED
+          failonerror %boolean; #IMPLIED>
+
+<!ELEMENT location EMPTY>
+<!ATTLIST location
+          id ID #IMPLIED
+          location %string; #IMPLIED>
+
+<!ELEMENT ccuncheckout EMPTY>
+<!ATTLIST ccuncheckout
+          id ID #IMPLIED
+          objselect %string; #IMPLIED
+          keepcopy %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          viewpath %string; #IMPLIED
+          failonerr %boolean; #IMPLIED>
+
+<!ELEMENT cvstagdiff (commandline)*>
+<!ATTLIST cvstagdiff
+          id ID #IMPLIED
+          cvsrsh %string; #IMPLIED
+          endtag %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          passfile %string; #IMPLIED
+          command %string; #IMPLIED
+          package %string; #IMPLIED
+          cvsroot %string; #IMPLIED
+          reallyquiet %boolean; #IMPLIED
+          output %string; #IMPLIED
+          starttag %string; #IMPLIED
+          port %string; #IMPLIED
+          compressionlevel %string; #IMPLIED
+          dest %string; #IMPLIED
+          destfile %string; #IMPLIED
+          enddate %string; #IMPLIED
+          noexec %boolean; #IMPLIED
+          error %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          date %string; #IMPLIED
+          startdate %string; #IMPLIED
+          compression %boolean; #IMPLIED
+          tag %string; #IMPLIED>
+
+<!ELEMENT jlink (patternset | exclude | include | custom | present | none | not | type | modified | or | contains | depend | mergefiles | different | size | majority | containsregexp | filename | selector | includesfile | date | excludesfile | addfiles | depth | and)*>
+<!ATTLIST jlink
+          id ID #IMPLIED
+          outfile %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          addfiles %string; #IMPLIED
+          taskname %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          description %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          excludes %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          mergefiles %string; #IMPLIED
+          includes %string; #IMPLIED>
+
+<!ELEMENT mergefiles (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST mergefiles
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT addfiles (fileset | dirset | extdirs | existing | filelist | pathelement | path)*>
+<!ATTLIST addfiles
+          id ID #IMPLIED
+          location %string; #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED
+          path %string; #IMPLIED>
+
+<!ELEMENT javacc EMPTY>
+<!ATTLIST javacc
+          id ID #IMPLIED
+          jdkversion %string; #IMPLIED
+          debugparser %boolean; #IMPLIED
+          javacchome %string; #IMPLIED
+          forcelacheck %boolean; #IMPLIED
+          optimizetokenmanager %boolean; #IMPLIED
+          commontokenaction %boolean; #IMPLIED
+          buildtokenmanager %boolean; #IMPLIED
+          sanitycheck %boolean; #IMPLIED
+          buildparser %boolean; #IMPLIED
+          otherambiguitycheck %string; #IMPLIED
+          lookahead %string; #IMPLIED
+          debuglookahead %boolean; #IMPLIED
+          choiceambiguitycheck %string; #IMPLIED
+          unicodeinput %boolean; #IMPLIED
+          usercharstream %boolean; #IMPLIED
+          debugtokenmanager %boolean; #IMPLIED
+          keeplinecolumn %boolean; #IMPLIED
+          description %string; #IMPLIED
+          taskname %string; #IMPLIED
+          outputdirectory %string; #IMPLIED
+          cachetokens %boolean; #IMPLIED
+          javaunicodeescape %boolean; #IMPLIED
+          static %boolean; #IMPLIED
+          target %string; #IMPLIED
+          ignorecase %boolean; #IMPLIED
+          usertokenmanager %boolean; #IMPLIED
+          errorreporting %boolean; #IMPLIED>
+
+<!ELEMENT chmod (mapper | include | srcfile | exclude | targetfile | patternset | redirector | env | filelist | fileset | dirset | arg)*>
+<!ATTLIST chmod
+          id ID #IMPLIED
+          addsourcefile %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          parallel %boolean; #IMPLIED
+          input %string; #IMPLIED
+          executable %string; #IMPLIED
+          force %boolean; #IMPLIED
+          inputstring %string; #IMPLIED
+          osfamily %string; #IMPLIED
+          searchpath %boolean; #IMPLIED
+          relative %boolean; #IMPLIED
+          skipemptyfilesets %boolean; #IMPLIED
+          command %string; #IMPLIED
+          forwardslash %boolean; #IMPLIED
+          spawn %boolean; #IMPLIED
+          description %string; #IMPLIED
+          includes %string; #IMPLIED
+          vmlauncher %boolean; #IMPLIED
+          file %string; #IMPLIED
+          logerror %boolean; #IMPLIED
+          errorproperty %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          output %string; #IMPLIED
+          error %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          os %string; #IMPLIED
+          dest %string; #IMPLIED
+          resolveexecutable %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          resultproperty %string; #IMPLIED
+          ignoremissing %boolean; #IMPLIED
+          failifexecutionfails %boolean; #IMPLIED
+          append %boolean; #IMPLIED
+          timeout %string; #IMPLIED
+          maxparallel %string; #IMPLIED
+          outputproperty %string; #IMPLIED
+          perm %string; #IMPLIED
+          dir %string; #IMPLIED
+          newenvironment %boolean; #IMPLIED
+          type (file | dir | both) #IMPLIED>
+
+<!ELEMENT jarlib-manifest (options | attribute | depends | extension)*>
+<!ATTLIST jarlib-manifest
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          destfile %string; #IMPLIED>
+
+<!ELEMENT options (fileset | libfileset | extension)*>
+<!ATTLIST options
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT depends (fileset | libfileset | extension)*>
+<!ATTLIST depends
+          id ID #IMPLIED
+          refid IDREF #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT pvcs (pvcsproject)*>
+<!ATTLIST pvcs
+          id ID #IMPLIED
+          updateonly %boolean; #IMPLIED
+          force %string; #IMPLIED
+          config %string; #IMPLIED
+          workspace %string; #IMPLIED
+          pvcsbin %string; #IMPLIED
+          pvcsproject %string; #IMPLIED
+          filenameformat %string; #IMPLIED
+          userid %string; #IMPLIED
+          repository %string; #IMPLIED
+          ignorereturncode %boolean; #IMPLIED
+          revision %string; #IMPLIED
+          linestart %string; #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          promotiongroup %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT pvcsproject EMPTY>
+<!ATTLIST pvcsproject
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT jar (patternset | exclude | include | custom | present | none | not | manifest | type | metainf | modified | or | contains | depend | fileset | different | size | majority | containsregexp | indexjars | filename | selector | includesfile | zipgroupfileset | zipfileset | date | excludesfile | depth | and | service)*>
+<!ATTLIST jar
+          id ID #IMPLIED
+          level %string; #IMPLIED
+          comment %string; #IMPLIED
+          whenempty (fail | skip | create) #IMPLIED
+          keepcompression %boolean; #IMPLIED
+          duplicate (add | preserve | fail) #IMPLIED
+          roundup %boolean; #IMPLIED
+          excludes %string; #IMPLIED
+          encoding %string; #IMPLIED
+          basedir %string; #IMPLIED
+          manifest %string; #IMPLIED
+          jarfile %string; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          index %boolean; #IMPLIED
+          update %boolean; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          destfile %string; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          description %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          compress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          manifestencoding %string; #IMPLIED
+          filesonly %boolean; #IMPLIED
+          file %string; #IMPLIED
+          whenmanifestonly (fail | skip | create) #IMPLIED
+          excludesfile %string; #IMPLIED
+          filesetmanifest (skip | merge | mergewithoutmain) #IMPLIED
+          zipfile %string; #IMPLIED>
+
+<!ELEMENT ccmklbtype EMPTY>
+<!ATTLIST ccmklbtype
+          id ID #IMPLIED
+          global %boolean; #IMPLIED
+          replace %boolean; #IMPLIED
+          shared %boolean; #IMPLIED
+          viewpath %string; #IMPLIED
+          typename %string; #IMPLIED
+          comment %string; #IMPLIED
+          pbranch %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          vob %string; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED
+          ordinary %boolean; #IMPLIED>
+
+<!ELEMENT sound (fail | success)*>
+<!ATTLIST sound
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT fail (#PCDATA)>
+<!ATTLIST fail
+          if %string; #IMPLIED
+          unless %string; #IMPLIED
+          message %string; #IMPLIED
+          id ID #IMPLIED
+          loops %string; #IMPLIED
+          source %string; #IMPLIED
+          duration %string; #IMPLIED>
+
+<!ELEMENT success EMPTY>
+<!ATTLIST success
+          id ID #IMPLIED
+          loops %string; #IMPLIED
+          source %string; #IMPLIED
+          duration %string; #IMPLIED>
+
+<!ELEMENT scriptdef (#PCDATA | classpath | element | attribute)*>
+<!ATTLIST scriptdef
+          id ID #IMPLIED
+          src %string; #IMPLIED
+          name %string; #IMPLIED
+          uri %string; #IMPLIED
+          classpath %string; #IMPLIED
+          manager %string; #IMPLIED
+          language %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          loaderref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          reverseloader %boolean; #IMPLIED>
+
+<!ELEMENT defaultexcludes EMPTY>
+<!ATTLIST defaultexcludes
+          id ID #IMPLIED
+          remove %string; #IMPLIED
+          echo %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          default %boolean; #IMPLIED
+          description %string; #IMPLIED
+          add %string; #IMPLIED>
+
+<!ELEMENT blgenclient (classpath)*>
+<!ATTLIST blgenclient
+          id ID #IMPLIED
+          debug %boolean; #IMPLIED
+          classpath %string; #IMPLIED
+          mode %string; #IMPLIED
+          ejbjar %string; #IMPLIED
+          version %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          clientjar %string; #IMPLIED>
+
+<!ELEMENT jjdoc EMPTY>
+<!ATTLIST jjdoc
+          id ID #IMPLIED
+          outputfile %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          javacchome %string; #IMPLIED
+          target %string; #IMPLIED
+          text %boolean; #IMPLIED
+          onetable %boolean; #IMPLIED>
+
+<!ELEMENT genkey (dname)*>
+<!ATTLIST genkey
+          id ID #IMPLIED
+          storepass %string; #IMPLIED
+          sigalg %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          keypass %string; #IMPLIED
+          dname %string; #IMPLIED
+          keysize %string; #IMPLIED
+          alias %string; #IMPLIED
+          keyalg %string; #IMPLIED
+          validity %string; #IMPLIED
+          keystore %string; #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED
+          storetype %string; #IMPLIED>
+
+<!ELEMENT dname (param)*>
+<!ATTLIST dname
+          id ID #IMPLIED>
+
+<!ELEMENT javah (arg | classpath | class | bootclasspath)*>
+<!ATTLIST javah
+          id ID #IMPLIED
+          stubs %boolean; #IMPLIED
+          force %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          old %boolean; #IMPLIED
+          outputfile %string; #IMPLIED
+          implementation %string; #IMPLIED
+          class %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          bootclasspath %string; #IMPLIED
+          bootclasspathref IDREF #IMPLIED
+          classpathref IDREF #IMPLIED
+          taskname %string; #IMPLIED
+          description %string; #IMPLIED>
+
+<!ELEMENT class EMPTY>
+<!ATTLIST class
+          id ID #IMPLIED
+          name %string; #IMPLIED>
+
+<!ELEMENT ccmkelem EMPTY>
+<!ATTLIST ccmkelem
+          id ID #IMPLIED
+          preservetime %boolean; #IMPLIED
+          master %boolean; #IMPLIED
+          eltype %string; #IMPLIED
+          viewpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          failonerr %boolean; #IMPLIED
+          objselect %string; #IMPLIED
+          cleartooldir %string; #IMPLIED
+          taskname %string; #IMPLIED
+          nocheckout %boolean; #IMPLIED
+          description %string; #IMPLIED
+          commentfile %string; #IMPLIED
+          checkin %boolean; #IMPLIED>
+
+<!ELEMENT ccmreconfigure EMPTY>
+<!ATTLIST ccmreconfigure
+          id ID #IMPLIED
+          ccmaction %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          ccmproject %string; #IMPLIED
+          description %string; #IMPLIED
+          recurse %boolean; #IMPLIED
+          ccmdir %string; #IMPLIED>
+
+<!ELEMENT unzip (fileset | patternset | mapper)*>
+<!ATTLIST unzip
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dest %string; #IMPLIED
+          overwrite %boolean; #IMPLIED
+          description %string; #IMPLIED
+          encoding %string; #IMPLIED
+          src %string; #IMPLIED>
+
+<!ELEMENT javac (patternset | exclude | include | custom | present | none | extdirs | not | type | modified | src | or | contains | depend | classpath | sourcepath | different | size | majority | containsregexp | bootclasspath | filename | selector | includesfile | compilerarg | date | excludesfile | depth | and)*>
+<!ATTLIST javac
+          id ID #IMPLIED
+          target %string; #IMPLIED
+          excludes %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          bootclasspathref IDREF #IMPLIED
+          compiler %string; #IMPLIED
+          executable %string; #IMPLIED
+          debuglevel %string; #IMPLIED
+          memoryinitialsize %string; #IMPLIED
+          deprecation %boolean; #IMPLIED
+          includeantruntime %boolean; #IMPLIED
+          description %string; #IMPLIED
+          sourcepathref IDREF #IMPLIED
+          depend %boolean; #IMPLIED
+          includes %string; #IMPLIED
+          source %string; #IMPLIED
+          includejavaruntime %boolean; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          destdir %string; #IMPLIED
+          debug %boolean; #IMPLIED
+          tempdir %string; #IMPLIED
+          classpath %string; #IMPLIED
+          followsymlinks %boolean; #IMPLIED
+          casesensitive %boolean; #IMPLIED
+          defaultexcludes %boolean; #IMPLIED
+          bootclasspath %string; #IMPLIED
+          includesfile %string; #IMPLIED
+          nowarn %boolean; #IMPLIED
+          proceed %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          classpathref IDREF #IMPLIED
+          fork %boolean; #IMPLIED
+          srcdir %string; #IMPLIED
+          memorymaximumsize %string; #IMPLIED
+          optimize %boolean; #IMPLIED
+          encoding %string; #IMPLIED
+          excludesfile %string; #IMPLIED
+          sourcepath %string; #IMPLIED
+          listfiles %boolean; #IMPLIED
+          extdirs %string; #IMPLIED>
+
+<!ELEMENT soslabel EMPTY>
+<!ATTLIST soslabel
+          id ID #IMPLIED
+          soshome %string; #IMPLIED
+          verbose %boolean; #IMPLIED
+          vssserverpath %string; #IMPLIED
+          username %string; #IMPLIED
+          sosserverpath %string; #IMPLIED
+          comment %string; #IMPLIED
+          projectpath %string; #IMPLIED
+          version %string; #IMPLIED
+          nocache %boolean; #IMPLIED
+          nocompress %boolean; #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          description %string; #IMPLIED
+          localpath %string; #IMPLIED
+          soscmd %string; #IMPLIED
+          password %string; #IMPLIED>
+
+<!ELEMENT vssget EMPTY>
+<!ATTLIST vssget
+          id ID #IMPLIED
+          ssdir %string; #IMPLIED
+          date %string; #IMPLIED
+          recursive %boolean; #IMPLIED
+          autoresponse %string; #IMPLIED
+          quiet %boolean; #IMPLIED
+          vsspath %string; #IMPLIED
+          version %string; #IMPLIED
+          serverpath %string; #IMPLIED
+          login %string; #IMPLIED
+          writable %boolean; #IMPLIED
+          filetimestamp (current | modified | updated) #IMPLIED
+          taskname %string; #IMPLIED
+          label %string; #IMPLIED
+          description %string; #IMPLIED
+          failonerror %boolean; #IMPLIED
+          localpath %string; #IMPLIED
+          writablefiles (replace | skip | fail) #IMPLIED>
+
+<!ELEMENT deltree EMPTY>
+<!ATTLIST deltree
+          id ID #IMPLIED
+          taskname %string; #IMPLIED
+          dir %string; #IMPLIED
+          description %string; #IMPLIED>
+

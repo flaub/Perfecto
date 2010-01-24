@@ -1,0 +1,17 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:527: checking how to run the C preprocessor
+configure:548: cc -E  conftest.c >/dev/null 2>conftest.out
+configure:607: checking whether ln -s works
+configure:628: checking whether make sets ${MAKE}
+configure:656: checking for main in -ldl
+configure:671: cc -o conftest    conftest.c -ldl   1>&5
+configure:699: checking for main in -lm
+configure:714: cc -o conftest    conftest.c -lm  -ldl  1>&5
+configure:742: checking for main in -lc
+configure:757: cc -o conftest    conftest.c -lc  -lm -ldl  1>&5
+configure:787: checking for working const
+configure:841: cc -c   conftest.c 1>&5
+configure:862: checking for inline
+configure:876: cc -c   conftest.c 1>&5

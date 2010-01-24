@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		B6781E190DEAABF7003C72E5 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B6781E240DEAAC34003C72E5 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				B6781E1D0DEAABFC003C72E5 /* PBXTargetDependency */,
+				B6781E1F0DEAABFF003C72E5 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+		B6781E260DEAAC44003C72E5 /* Flex */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B6781E290DEAAC62003C72E5 /* Build configuration list for PBXAggregateTarget "Flex" */;
+			buildPhases = (
+				B6781E250DEAAC44003C72E5 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Flex;
+			productName = Flex;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B605FA870DDF791D006699DD /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = B605FA860DDF791D006699DD /* AppController.m */; };
+		B605FAB20DDF89A4006699DD /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = B605FAB10DDF89A4006699DD /* Document.m */; };
+		B605FDEE0DDFCD65006699DD /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B605FDED0DDFCD65006699DD /* MyApplication.m */; };
+		B643A5CB0DE7833600EE1C78 /* FileSystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B643A5CA0DE7833600EE1C78 /* FileSystemItem.m */; };
+		B67819DD0DEA6C11003C72E5 /* PSMTabBarControl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B67819DC0DEA6BF7003C72E5 /* PSMTabBarControl.framework */; };
+		B67819F10DEA6C2C003C72E5 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67819DC0DEA6BF7003C72E5 /* PSMTabBarControl.framework */; };
+		B6781A3F0DEA7B9C003C72E5 /* lex.yy.c in Sources */ = {isa = PBXBuildFile; fileRef = B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */; };
+		B6781A840DEA8083003C72E5 /* scanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6781A800DEA8050003C72E5 /* scanner.cpp */; };
+		B6781A940DEA8122003C72E5 /* lex.yy.c in Sources */ = {isa = PBXBuildFile; fileRef = B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */; };
+		B69058210DECA8CB00F94CEB /* liblibcolorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B690581A0DECA89000F94CEB /* liblibcolorer.a */; };
+		B690582F0DECA91500F94CEB /* liblibcolorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B690581A0DECA89000F94CEB /* liblibcolorer.a */; };
+		B69058B40DECB19700F94CEB /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B69058B30DECB19700F94CEB /* libncurses.dylib */; };
+		B690591D0DECBC7B00F94CEB /* ColoringBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B690591C0DECBC7B00F94CEB /* ColoringBridge.cpp */; };
+		B6B0333E0DE5287600C501D0 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B0333D0DE5287600C501D0 /* MyTextView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B67819D70DEA6BF7003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1AC9740486D14A00FE50C9;
+			remoteInfo = PSMTabBarControl;
+		};
+		B67819D90DEA6BF7003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A251BEA00959BB5B0058BC7F;
+			remoteInfo = TabBarControlDemo;
+		};
+		B67819DB0DEA6BF7003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0;
+			remoteInfo = PSMTabBarControlFramework;
+		};
+		B6781E1C0DEAABFC003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = Perfecto;
+		};
+		B6781E1E0DEAABFF003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6781A600DEA7F41003C72E5;
+			remoteInfo = scanner;
+		};
+		B6781E2D0DEAACC3003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6781E260DEAAC44003C72E5;
+			remoteInfo = Flex;
+		};
+		B6781E2F0DEAACD1003C72E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6781E260DEAAC44003C72E5;
+			remoteInfo = Flex;
+		};
+		B69058190DECA89000F94CEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D /* liblibcolorer.a */;
+			remoteInfo = libcolorer;
+		};
+		B690581B0DECA89000F94CEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B699CABA0DEBC0AE00E14A75 /* colorer */;
+			remoteInfo = colorer;
+		};
+		B690581F0DECA8C100F94CEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D /* libcolorer */;
+			remoteInfo = libcolorer;
+		};
+		B690582B0DECA8FB00F94CEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D /* libcolorer */;
+			remoteInfo = libcolorer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B62931DB0DE8E35F009B9FD2 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B67819DD0DEA6C11003C72E5 /* PSMTabBarControl.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* edit2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edit2_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Perfecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perfecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B605FA850DDF791D006699DD /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		B605FA860DDF791D006699DD /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		B605FAB00DDF89A4006699DD /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		B605FAB10DDF89A4006699DD /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		B605FDEC0DDFCD65006699DD /* MyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplication.h; sourceTree = "<group>"; };
+		B605FDED0DDFCD65006699DD /* MyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplication.m; sourceTree = "<group>"; };
+		B643A5C90DE7833600EE1C78 /* FileSystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemItem.h; sourceTree = "<group>"; };
+		B643A5CA0DE7833600EE1C78 /* FileSystemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemItem.m; sourceTree = "<group>"; };
+		B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "PSMTabBarControl Embedded.xcodeproj"; path = "../maccode-read-only/Utilities/PSMTabBarControl/PSMTabBarControl Embedded.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lex.yy.c; sourceTree = "<group>"; };
+		B6781A3E0DEA7B9C003C72E5 /* tokens.lex */ = {isa = PBXFileReference; explicitFileType = sourcecode.lex; fileEncoding = 4; path = tokens.lex; sourceTree = "<group>"; };
+		B6781A610DEA7F41003C72E5 /* scanner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = scanner; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6781A800DEA8050003C72E5 /* scanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scanner.cpp; sourceTree = "<group>"; };
+		B6781A870DEA80B1003C72E5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B6781CB30DEA9588003C72E5 /* yy.lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yy.lex.h; sourceTree = "<group>"; };
+		B69058130DECA89000F94CEB /* libcolorer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libcolorer.xcodeproj; path = "../Colorer-take5.be5/libcolorer/libcolorer.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		B69058B30DECB19700F94CEB /* libncurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libncurses.dylib; path = usr/lib/libncurses.dylib; sourceTree = SDKROOT; };
+		B690591B0DECBC7B00F94CEB /* ColoringBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoringBridge.h; sourceTree = "<group>"; };
+		B690591C0DECBC7B00F94CEB /* ColoringBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColoringBridge.cpp; sourceTree = "<group>"; };
+		B6B0333C0DE5287600C501D0 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
+		B6B0333D0DE5287600C501D0 /* MyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B69058210DECA8CB00F94CEB /* liblibcolorer.a in Frameworks */,
+				B67819F10DEA6C2C003C72E5 /* PSMTabBarControl.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B690582E0DECA91000F94CEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B690582F0DECA91500F94CEB /* liblibcolorer.a in Frameworks */,
+				B69058B40DECB19700F94CEB /* libncurses.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B605FA850DDF791D006699DD /* AppController.h */,
+				B605FA860DDF791D006699DD /* AppController.m */,
+				B605FAB00DDF89A4006699DD /* Document.h */,
+				B605FAB10DDF89A4006699DD /* Document.m */,
+				B605FDEC0DDFCD65006699DD /* MyApplication.h */,
+				B605FDED0DDFCD65006699DD /* MyApplication.m */,
+				B6B0333C0DE5287600C501D0 /* MyTextView.h */,
+				B6B0333D0DE5287600C501D0 /* MyTextView.m */,
+				B643A5C90DE7833600EE1C78 /* FileSystemItem.h */,
+				B643A5CA0DE7833600EE1C78 /* FileSystemItem.m */,
+				B690591B0DECBC7B00F94CEB /* ColoringBridge.h */,
+				B690591C0DECBC7B00F94CEB /* ColoringBridge.cpp */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Perfecto.app */,
+				B6781A610DEA7F41003C72E5 /* scanner */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Perfecto */ = {
+			isa = PBXGroup;
+			children = (
+				B69058130DECA89000F94CEB /* libcolorer.xcodeproj */,
+				B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				B6781A870DEA80B1003C72E5 /* Cocoa.framework */,
+				B69058B30DECB19700F94CEB /* libncurses.dylib */,
+			);
+			name = Perfecto;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B6781CB30DEA9588003C72E5 /* yy.lex.h */,
+				B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */,
+				B6781A3E0DEA7B9C003C72E5 /* tokens.lex */,
+				32CA4F630368D1EE00C91783 /* edit2_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				B6781A800DEA8050003C72E5 /* scanner.cpp */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B67819C70DEA6BF7003C72E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B67819D80DEA6BF7003C72E5 /* PSMTabBarControl.ibplugin */,
+				B67819DA0DEA6BF7003C72E5 /* TabBarControlDemo.app */,
+				B67819DC0DEA6BF7003C72E5 /* PSMTabBarControl.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B69058140DECA89000F94CEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B690581A0DECA89000F94CEB /* liblibcolorer.a */,
+				B690581C0DECA89000F94CEB /* colorer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Perfecto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Perfecto" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				B62931DB0DE8E35F009B9FD2 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6781E2E0DEAACC3003C72E5 /* PBXTargetDependency */,
+				B69058200DECA8C100F94CEB /* PBXTargetDependency */,
+			);
+			name = Perfecto;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Perfecto;
+			productReference = 8D1107320486CEB800E47090 /* Perfecto.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B6781A600DEA7F41003C72E5 /* scanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6781A7E0DEA8009003C72E5 /* Build configuration list for PBXNativeTarget "scanner" */;
+			buildPhases = (
+				B6781A5E0DEA7F41003C72E5 /* Sources */,
+				B690582E0DECA91000F94CEB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6781E300DEAACD1003C72E5 /* PBXTargetDependency */,
+				B690582C0DECA8FB00F94CEB /* PBXTargetDependency */,
+			);
+			name = scanner;
+			productName = scanner;
+			productReference = B6781A610DEA7F41003C72E5 /* scanner */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Perfecto" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Perfecto */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B69058140DECA89000F94CEB /* Products */;
+					ProjectRef = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
+				},
+				{
+					ProductGroup = B67819C70DEA6BF7003C72E5 /* Products */;
+					ProjectRef = B67819C60DEA6BF7003C72E5 /* PSMTabBarControl Embedded.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Perfecto */,
+				B6781A600DEA7F41003C72E5 /* scanner */,
+				B6781E190DEAABF7003C72E5 /* All */,
+				B6781E260DEAAC44003C72E5 /* Flex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B67819D80DEA6BF7003C72E5 /* PSMTabBarControl.ibplugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PSMTabBarControl.ibplugin;
+			remoteRef = B67819D70DEA6BF7003C72E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B67819DA0DEA6BF7003C72E5 /* TabBarControlDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TabBarControlDemo.app;
+			remoteRef = B67819D90DEA6BF7003C72E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B67819DC0DEA6BF7003C72E5 /* PSMTabBarControl.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PSMTabBarControl.framework;
+			remoteRef = B67819DB0DEA6BF7003C72E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B690581A0DECA89000F94CEB /* liblibcolorer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibcolorer.a;
+			remoteRef = B69058190DECA89000F94CEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B690581C0DECA89000F94CEB /* colorer */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = colorer;
+			remoteRef = B690581B0DECA89000F94CEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B6781E250DEAAC44003C72E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/tokens.lex",
+			);
+			outputPaths = (
+				"$(SRCROOT)/yy.lex.h",
+				"$(SRCROOT)/yy.lex.c",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "flex --full --header-file=yy.lex.h tokens.lex ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				B605FA870DDF791D006699DD /* AppController.m in Sources */,
+				B605FAB20DDF89A4006699DD /* Document.m in Sources */,
+				B605FDEE0DDFCD65006699DD /* MyApplication.m in Sources */,
+				B6B0333E0DE5287600C501D0 /* MyTextView.m in Sources */,
+				B643A5CB0DE7833600EE1C78 /* FileSystemItem.m in Sources */,
+				B6781A3F0DEA7B9C003C72E5 /* lex.yy.c in Sources */,
+				B690591D0DECBC7B00F94CEB /* ColoringBridge.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6781A5E0DEA7F41003C72E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6781A940DEA8122003C72E5 /* lex.yy.c in Sources */,
+				B6781A840DEA8083003C72E5 /* scanner.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B6781E1D0DEAABFC003C72E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Perfecto */;
+			targetProxy = B6781E1C0DEAABFC003C72E5 /* PBXContainerItemProxy */;
+		};
+		B6781E1F0DEAABFF003C72E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6781A600DEA7F41003C72E5 /* scanner */;
+			targetProxy = B6781E1E0DEAABFF003C72E5 /* PBXContainerItemProxy */;
+		};
+		B6781E2E0DEAACC3003C72E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6781E260DEAAC44003C72E5 /* Flex */;
+			targetProxy = B6781E2D0DEAACC3003C72E5 /* PBXContainerItemProxy */;
+		};
+		B6781E300DEAACD1003C72E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6781E260DEAAC44003C72E5 /* Flex */;
+			targetProxy = B6781E2F0DEAACD1003C72E5 /* PBXContainerItemProxy */;
+		};
+		B69058200DECA8C100F94CEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libcolorer;
+			targetProxy = B690581F0DECA8C100F94CEB /* PBXContainerItemProxy */;
+		};
+		B690582C0DECA8FB00F94CEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libcolorer;
+			targetProxy = B690582B0DECA8FB00F94CEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6781A630DEA7F41003C72E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = edit2_Prefix.pch;
+				HEADER_SEARCH_PATHS = "../Colorer-take5.be5/src/shared/";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = scanner;
+			};
+			name = Debug;
+		};
+		B6781A640DEA7F41003C72E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = scanner;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		B6781E1A0DEAABF7003C72E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		B6781E1B0DEAABF7003C72E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		B6781E270DEAAC44003C72E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Flex;
+			};
+			name = Debug;
+		};
+		B6781E280DEAAC44003C72E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Flex;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/franklaub/src/maccode-read-only/Utilities/PSMTabBarControl/build/Debug",
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = edit2_Prefix.pch;
+				HEADER_SEARCH_PATHS = "../Colorer-take5.be5/src/shared/";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Perfecto;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../PSMTabBarControl/build/Debug\"",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)/../maccode-read-only/Utilities/PSMTabBarControl/build/Debug\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = edit2_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Perfecto;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6781A7E0DEA8009003C72E5 /* Build configuration list for PBXNativeTarget "scanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6781A630DEA7F41003C72E5 /* Debug */,
+				B6781A640DEA7F41003C72E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6781E240DEAAC34003C72E5 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6781E1A0DEAABF7003C72E5 /* Debug */,
+				B6781E1B0DEAABF7003C72E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6781E290DEAAC62003C72E5 /* Build configuration list for PBXAggregateTarget "Flex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6781E270DEAAC44003C72E5 /* Debug */,
+				B6781E280DEAAC44003C72E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Perfecto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Perfecto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

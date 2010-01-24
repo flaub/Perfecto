@@ -1,0 +1,53 @@
+8
+
+dir
+27
+file:///var/svn/local/Perfecto/English.lproj
+file:///var/svn/local
+
+
+
+2008-05-26T18:47:07.037322Z
+25
+franklaub
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7ef9bf7d-6e32-44ab-a54d-ae118304aa28
+
+InfoPlist.strings
+file
+
+
+
+
+2008-05-24T23:35:38.000000Z
+51ef59b60e5b41b91519cc662a9fe886
+2008-05-24T23:32:01.177093Z
+16
+franklaub
+has-props
+
+MainMenu.xib
+file
+
+
+
+
+2008-05-26T17:56:42.000000Z
+5cc548b2f6706a2e16d84c33c875326d
+2008-05-26T18:47:07.037322Z
+25
+franklaub
+
