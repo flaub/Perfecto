@@ -44,6 +44,8 @@
 		B6781A3F0DEA7B9C003C72E5 /* lex.yy.c in Sources */ = {isa = PBXBuildFile; fileRef = B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */; };
 		B6781A840DEA8083003C72E5 /* scanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6781A800DEA8050003C72E5 /* scanner.cpp */; };
 		B6781A940DEA8122003C72E5 /* lex.yy.c in Sources */ = {isa = PBXBuildFile; fileRef = B6781A3D0DEA7B9C003C72E5 /* lex.yy.c */; };
+		B687B83011DD9F2D00C8EC62 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B687B80E11DD9D3800C8EC62 /* PSMTabBarControl.framework */; };
+		B687B83411DD9F6C00C8EC62 /* PSMTabBarControl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B687B80E11DD9D3800C8EC62 /* PSMTabBarControl.framework */; };
 		B69058210DECA8CB00F94CEB /* liblibcolorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B690581A0DECA89000F94CEB /* liblibcolorer.a */; };
 		B690582F0DECA91500F94CEB /* liblibcolorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B690581A0DECA89000F94CEB /* liblibcolorer.a */; };
 		B69058B40DECB19700F94CEB /* libncurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B69058B30DECB19700F94CEB /* libncurses.dylib */; };
@@ -80,6 +82,34 @@
 			remoteGlobalIDString = B6781E260DEAAC44003C72E5;
 			remoteInfo = Flex;
 		};
+		B687B80B11DD9D3800C8EC62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1AC9740486D14A00FE50C9 /* PSMTabBarControl.ibplugin */;
+			remoteInfo = PSMTabBarControl;
+		};
+		B687B80D11DD9D3800C8EC62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0 /* PSMTabBarControl.framework */;
+			remoteInfo = PSMTabBarControlFramework;
+		};
+		B687B80F11DD9D3800C8EC62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BD4395A1185147D00DB4AC3 /* PSMTabBarControlDemo.app */;
+			remoteInfo = PSMTabBarControlDemo;
+		};
+		B687B83511DD9F8100C8EC62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53DF68FC067E5B5A0090B5B0 /* PSMTabBarControlFramework */;
+			remoteInfo = PSMTabBarControlFramework;
+		};
 		B69058190DECA89000F94CEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
@@ -108,27 +138,6 @@
 			remoteGlobalIDString = D2AAC045055464E500DB518D;
 			remoteInfo = libcolorer;
 		};
-		B6CC7100110CFB58001109FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1AC9740486D14A00FE50C9;
-			remoteInfo = PSMTabBarControl;
-		};
-		B6CC7102110CFB58001109FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A251BEA00959BB5B0058BC7F;
-			remoteInfo = TabBarControlDemo;
-		};
-		B6CC7104110CFB58001109FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0;
-			remoteInfo = PSMTabBarControlFramework;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,8 +147,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B687B83411DD9F6C00C8EC62 /* PSMTabBarControl.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B687B83A11DD9F9600C8EC62 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -169,13 +188,13 @@
 		B6781A800DEA8050003C72E5 /* scanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scanner.cpp; sourceTree = "<group>"; };
 		B6781A870DEA80B1003C72E5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B6781CB30DEA9588003C72E5 /* yy.lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yy.lex.h; sourceTree = "<group>"; };
+		B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PSMTabBarControl.xcodeproj; path = ../PSMTabBarControl/Source/PSMTabBarControl.xcodeproj; sourceTree = SOURCE_ROOT; };
 		B69058130DECA89000F94CEB /* libcolorer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libcolorer.xcodeproj; path = "../Colorer-take5.be5/libcolorer/libcolorer.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		B69058B30DECB19700F94CEB /* libncurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libncurses.dylib; path = usr/lib/libncurses.dylib; sourceTree = SDKROOT; };
 		B690591B0DECBC7B00F94CEB /* ColoringBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoringBridge.h; sourceTree = "<group>"; };
 		B690591C0DECBC7B00F94CEB /* ColoringBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColoringBridge.cpp; sourceTree = "<group>"; };
 		B6B0333C0DE5287600C501D0 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
 		B6B0333D0DE5287600C501D0 /* MyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextView.m; sourceTree = "<group>"; };
-		B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PSMTabBarControl.xcodeproj; path = ../PSMTabBarControl/PSMTabBarControl.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B687B83011DD9F2D00C8EC62 /* PSMTabBarControl.framework in Frameworks */,
 				B69058210DECA8CB00F94CEB /* liblibcolorer.a in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 			);
@@ -249,7 +269,7 @@
 		29B97314FDCFA39411CA2CEA /* Perfecto */ = {
 			isa = PBXGroup;
 			children = (
-				B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */,
+				B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */,
 				B69058130DECA89000F94CEB /* libcolorer.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -294,21 +314,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B687B80211DD9D3800C8EC62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B687B80C11DD9D3800C8EC62 /* PSMTabBarControl.ibplugin */,
+				B687B80E11DD9D3800C8EC62 /* PSMTabBarControl.framework */,
+				B687B81011DD9D3800C8EC62 /* PSMTabBarControlDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B69058140DECA89000F94CEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				B690581A0DECA89000F94CEB /* liblibcolorer.a */,
 				B690581C0DECA89000F94CEB /* colorer */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B6CC70F6110CFB58001109FC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B6CC7101110CFB58001109FC /* PSMTabBarControl.palette */,
-				B6CC7103110CFB58001109FC /* TabBarControlDemo.app */,
-				B6CC7105110CFB58001109FC /* PSMTabBarControl.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,12 +344,14 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				B62931DB0DE8E35F009B9FD2 /* Copy Frameworks */,
+				B687B83A11DD9F9600C8EC62 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B6781E2E0DEAACC3003C72E5 /* PBXTargetDependency */,
 				B69058200DECA8C100F94CEB /* PBXTargetDependency */,
+				B687B83611DD9F8100C8EC62 /* PBXTargetDependency */,
 			);
 			name = Perfecto;
 			productInstallPath = "$(HOME)/Applications";
@@ -371,8 +393,8 @@
 					ProjectRef = B69058130DECA89000F94CEB /* libcolorer.xcodeproj */;
 				},
 				{
-					ProductGroup = B6CC70F6110CFB58001109FC /* Products */;
-					ProjectRef = B6CC70F5110CFB58001109FC /* PSMTabBarControl.xcodeproj */;
+					ProductGroup = B687B80211DD9D3800C8EC62 /* Products */;
+					ProjectRef = B687B80111DD9D3800C8EC62 /* PSMTabBarControl.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -386,6 +408,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		B687B80C11DD9D3800C8EC62 /* PSMTabBarControl.ibplugin */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PSMTabBarControl.ibplugin;
+			remoteRef = B687B80B11DD9D3800C8EC62 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B687B80E11DD9D3800C8EC62 /* PSMTabBarControl.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PSMTabBarControl.framework;
+			remoteRef = B687B80D11DD9D3800C8EC62 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B687B81011DD9D3800C8EC62 /* PSMTabBarControlDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PSMTabBarControlDemo.app;
+			remoteRef = B687B80F11DD9D3800C8EC62 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B690581A0DECA89000F94CEB /* liblibcolorer.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -398,27 +441,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = colorer;
 			remoteRef = B690581B0DECA89000F94CEB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B6CC7101110CFB58001109FC /* PSMTabBarControl.palette */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PSMTabBarControl.palette;
-			remoteRef = B6CC7100110CFB58001109FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B6CC7103110CFB58001109FC /* TabBarControlDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TabBarControlDemo.app;
-			remoteRef = B6CC7102110CFB58001109FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B6CC7105110CFB58001109FC /* PSMTabBarControl.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PSMTabBarControl.framework;
-			remoteRef = B6CC7104110CFB58001109FC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -501,6 +523,11 @@
 			isa = PBXTargetDependency;
 			target = B6781E260DEAAC44003C72E5 /* Flex */;
 			targetProxy = B6781E2F0DEAACD1003C72E5 /* PBXContainerItemProxy */;
+		};
+		B687B83611DD9F8100C8EC62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PSMTabBarControlFramework;
+			targetProxy = B687B83511DD9F8100C8EC62 /* PBXContainerItemProxy */;
 		};
 		B69058200DECA8C100F94CEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -632,6 +659,7 @@
 					"/Users/franklaub/src/maccode-read-only/Utilities/PSMTabBarControl/build/Debug",
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../PSMTabBarControl\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -657,6 +685,7 @@
 					"\"$(SRCROOT)/../../Library/Frameworks\"",
 					"\"$(SRCROOT)/../maccode-read-only/Utilities/PSMTabBarControl/build/Debug\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../PSMTabBarControl\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -670,26 +699,28 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};

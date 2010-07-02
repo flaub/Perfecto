@@ -222,6 +222,7 @@ int s_counter = 1;
 	if([preview length] > 500)
 		preview = [preview substringToIndex: 500];
 		
+	/*
 	NSString* text = [m_contents string];
 	NSArray* lines = (NSArray*)parse_syntax([m_path UTF8String], 
 											[preview UTF8String], 
@@ -271,6 +272,7 @@ int s_counter = 1;
 		[line release];
 	}
 	[lines release];
+	 */
 }
 
 @end

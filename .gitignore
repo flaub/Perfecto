@@ -1,1 +1,4 @@
 .DS_Store
+build
+*.pbxuser
+*.modelv3

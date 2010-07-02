@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <PSMTabBarControl/PSMTabBarControl.h>
+#import "PSMTabBarControl/PSMTabBarControl.h"
 #import "Document.h"
 #import "FileSystemItem.h"
 
