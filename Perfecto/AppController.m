@@ -378,8 +378,8 @@
 - (void) outlineViewDoubleClicked: (id) sender
 {
 	FileSystemItem* item = [fileView itemAtRow: [fileView selectedRow]];
-	NSDictionary* attributes = [[NSFileManager defaultManager] fileAttributesAtPath: [item fullPath] 
-																	   traverseLink: NO];
+	NSError* error;
+	NSDictionary* attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[item fullPath] error:&error];
 	NSString* fileType = [attributes fileType];
 	if(fileType == NSFileTypeRegular)
 	{

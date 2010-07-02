@@ -11,7 +11,7 @@
 #import "Document.h"
 #import "FileSystemItem.h"
 
-@interface AppController : NSObject 
+@interface AppController : NSObject <NSTextViewDelegate>
 {
 	IBOutlet NSWindow* window;
 	IBOutlet NSTabView* m_tabView;

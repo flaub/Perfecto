@@ -28,7 +28,7 @@
 
 @end
 
-@interface FileSystem : NSObject
+@interface FileSystem : NSObject <NSOutlineViewDataSource>
 {
 	FileSystemItem* m_root;
 	FSEventStreamContext* m_context;
